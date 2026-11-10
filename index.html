@@ -542,6 +542,14 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 @media (prefers-reduced-motion: reduce){.hero-mark .heads{animation:none}}
 .brand-sister{font-size:.85rem;color:rgba(242,235,219,.75)}
 .brand-sister a{color:#F2EBDB}
+
+.qf-grid{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.qf{background:var(--surface);border-radius:18px;padding:22px 22px 16px;display:flex;flex-direction:column;gap:10px;position:relative}
+.qf-k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.qf blockquote{margin:0;font-family:var(--font-display);font-size:1.3rem;line-height:1.3;color:var(--fg)}
+.qf-a{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+.qf-copy{align-self:flex-start;font:inherit;font-size:.85rem;font-weight:600;color:var(--accent);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.qf[hidden],.din[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -565,6 +573,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <li><a href="#familias">Familias de origen</a></li>
       <li><a href="#intimidad">Intimidad</a></li>
       <li><a href="#dinero">Dinero</a></li>
+      <li><a href="#dinamicas">Recursos</a></li>
       <li><a href="#app">App</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -583,6 +592,9 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <li><a href="#familias">Familias de origen</a></li>
         <li><a href="#intimidad">Intimidad</a></li>
         <li><a href="#dinero">Dinero</a></li>
+        <li><a href="#dinamicas">Dinámicas</a></li>
+        <li><a href="#frases">Frases</a></li>
+        <li><a href="#lecturas">Lecturas</a></li>
         <li><a href="#app">App</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -782,6 +794,212 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
     </div>
   </section>
 
+  <section class="block" id="dinamicas">
+    <div class="wrap">
+      <p class="eyebrow">Dinámicas</p>
+      <h2>Dinámicas para hacer juntos</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:62ch">Propuestas para frenar un rato, mirarse y darle forma, con las manos, a lo que a veces cuesta poner en palabras. Cada lámina se completa de a dos: algunas cada uno por su lado y después se comparan, otras juntos desde el principio.</p>
+      <ol class="pl-how">
+        <li><b>Busquen un momento tranquilo</b>Impriman la lámina y elijan un rato sin apuro y sin pantallas, con lo que necesiten a mano.</li>
+        <li><b>Escuchar antes que discutir</b>No hay respuestas correctas. Si aparece una diferencia, primero entiéndanla; después, si hace falta, la conversan.</li>
+        <li><b>Llévenlo al acompañamiento</b>Si están en terapia de pareja, traigan la lámina a la sesión y lo seguimos pensando juntos.</li>
+      </ol>
+      <div class="topics din-filters" role="group" aria-label="Filtrar dinámicas" id="din-filters">
+        <button type="button" class="topic" data-f="todas" aria-pressed="true">Todas</button>
+        <button type="button" class="topic" data-f="hoy" aria-pressed="false">Nosotros hoy</button>
+        <button type="button" class="topic" data-f="tiempo" aria-pressed="false">Nuestro tiempo y proyectos</button>
+        <button type="button" class="topic" data-f="historia" aria-pressed="false">Nuestra historia y familias</button>
+      </div>
+      <ul class="din-grid">
+        <li class="din" id="termometro-de-la-pareja" data-cat="hoy">
+          <figure><img src="dinamicas/termometro-de-la-pareja.jpg" width="827" height="1170" loading="lazy" alt="Lámina Termómetro de la pareja"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nosotros hoy</p>
+            <h3>Termómetro de la pareja</h3>
+            <p>Diez frases para mirar cómo estamos. Cada uno marca sin mirar al otro y después comparan.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Lean cada frase con calma.</li><li><span>2</span>Cada uno marca en su columna, sin mirar la del otro: casi nunca, a veces o seguido.</li><li><span>3</span>Comparen las respuestas y conversen sobre las diferencias.</li><li><span>4</span>Elijan una frase en la que les gustaría moverse un casillero.</li></ol><p class="din-note" style="margin-top:12px">No es un examen: es una foto de hoy.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/termometro-de-la-pareja.pdf" download="termometro-de-la-pareja.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="termometro-de-la-pareja" data-title="Termómetro de la pareja" data-text="¿Cómo estamos? Diez frases para mirarnos con honestidad y cariño.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="mensajes-que-quiero-recibir" data-cat="hoy">
+          <figure><img src="dinamicas/mensajes-que-quiero-recibir.jpg" width="827" height="1170" loading="lazy" alt="Lámina Mensajes que quiero recibir de vos"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nosotros hoy</p>
+            <h3>Mensajes que quiero recibir de vos</h3>
+            <p>Las palabras que nos hacen bien. Un celular para colorear con los mensajes que cada uno quiere recibir del otro.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lápices de colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Coloreen el celular, los corazones y las estrellas.</li><li><span>2</span>En cada burbuja, cada uno escribe un mensaje que le haría bien recibir del otro.</li><li><span>3</span>Intercambien las hojas y lean despacio.</li><li><span>4</span>Elijan un momento del día para mandarse uno.</li></ol><p class="din-note" style="margin-top:12px">¿Cómo me hablaría alguien que me quiere?</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/mensajes-que-quiero-recibir.pdf" download="mensajes-que-quiero-recibir.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="mensajes-que-quiero-recibir" data-title="Mensajes que quiero recibir de vos" data-text="Las palabras que nos hacen bien, en la pantalla que más miramos.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="puente-de-la-reconexion" data-cat="hoy">
+          <figure><img src="dinamicas/puente-de-la-reconexion.jpg" width="827" height="1170" loading="lazy" alt="Lámina Puente de la reconexión"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nosotros hoy</p>
+            <h3>Puente de la reconexión</h3>
+            <p>De cómo estamos hoy a cómo queremos estar. Un puente para colorear juntos y cinco piedras para pensar el camino.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lápices de colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Coloreen juntos el puente y el arcoíris.</li><li><span>2</span>En la orilla izquierda, cada uno escribe cómo siente hoy la relación.</li><li><span>3</span>En la orilla derecha, cómo le gustaría que estuviera.</li><li><span>4</span>Cada piedra es un paso que pueden dar los dos: anótenlos del más fácil al más difícil.</li></ol><p class="din-note" style="margin-top:12px">No hace falta cruzar de un salto: cada piedra cuenta.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/puente-de-la-reconexion.pdf" download="puente-de-la-reconexion.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="puente-de-la-reconexion" data-title="Puente de la reconexión" data-text="De cómo estamos hoy a cómo queremos estar, paso a paso, los dos.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="nuestro-reloj-de-prioridades" data-cat="tiempo">
+          <figure><img src="dinamicas/nuestro-reloj-de-prioridades.jpg" width="827" height="1170" loading="lazy" alt="Lámina Nuestro reloj de prioridades"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestro tiempo y proyectos</p>
+            <h3>Nuestro reloj de prioridades</h3>
+            <p>Cómo repartimos el tiempo de la semana y cuánto queda para los dos. Un reloj para pintar y conversar.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lápices de colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Pinten el reloj con tonos suaves y dorados.</li><li><span>2</span>Del 1 al 6: cómo reparten hoy su tiempo.</li><li><span>3</span>Del 7 al 12: cómo les gustaría repartirlo.</li><li><span>4</span>Elijan algo para soltar y un rato sólo para los dos.</li></ol><p class="din-note" style="margin-top:12px">¿Qué quedó afuera del reloj?</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/nuestro-reloj-de-prioridades.pdf" download="nuestro-reloj-de-prioridades.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="nuestro-reloj-de-prioridades" data-title="Nuestro reloj de prioridades" data-text="Cómo repartimos nuestro tiempo y cuánto queda para nosotros.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="reloj-de-la-paciencia" data-cat="tiempo">
+          <figure><img src="dinamicas/reloj-de-la-paciencia.jpg" width="827" height="1170" loading="lazy" alt="Lámina Reloj de la paciencia"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestro tiempo y proyectos</p>
+            <h3>Reloj de la paciencia</h3>
+            <p>Lo que estamos esperando o construyendo y lo que ya logramos. Un reloj de arena para honrar los procesos de a dos.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lápices de colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Coloreen el reloj de arena.</li><li><span>2</span>Arriba: lo que están esperando o construyendo como pareja.</li><li><span>3</span>Abajo: lo que ya lograron juntos, aunque parezca pequeño.</li><li><span>4</span>Anoten lo que los ayuda a esperar.</li></ol><p class="din-note" style="margin-top:12px">Los procesos de a dos no se apuran: se acompañan.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/reloj-de-la-paciencia.pdf" download="reloj-de-la-paciencia.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="reloj-de-la-paciencia" data-title="Reloj de la paciencia" data-text="Lo que estamos esperando o construyendo, y lo que ya logramos juntos.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="nuestro-universo-afectivo" data-cat="historia">
+          <figure><img src="dinamicas/nuestro-universo-afectivo.jpg" width="827" height="1170" loading="lazy" alt="Lámina Nuestro universo afectivo"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestra historia y familias</p>
+            <h3>Nuestro universo afectivo</h3>
+            <p>Un mapa de órbitas para ubicar a las personas que rodean a la pareja: familias, amigos, hijos. ¿Coinciden nuestros mapas?</p>
+            <p class="pl-meta">Para imprimir · A4 · Lápices de dos colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>En el centro están ustedes dos.</li><li><span>2</span>Cada uno dibuja un planeta por cada persona importante, con su propio color.</li><li><span>3</span>Cuanto más cerca del centro, más cercana la siente.</li><li><span>4</span>Comparen los mapas: ¿coinciden?</li></ol><p class="din-note" style="margin-top:12px">Una pareja necesita un espacio propio, abierto a los demás pero cuidado.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/nuestro-universo-afectivo.pdf" download="nuestro-universo-afectivo.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="nuestro-universo-afectivo" data-title="Nuestro universo afectivo" data-text="¿A quién sentimos cerca? Las personas que rodean a nuestra pareja.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="nuestra-historia-en-tres-tiempos" data-cat="historia">
+          <figure><img src="dinamicas/nuestra-historia-en-tres-tiempos.jpg" width="827" height="1170" loading="lazy" alt="Lámina Nuestra historia en tres tiempos"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestra historia y familias</p>
+            <h3>Nuestra historia en tres tiempos</h3>
+            <p>Tres vasos para mirar el pasado, el presente y el futuro de la pareja: lo que nos llenó, lo que faltó y lo que soñamos.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Cada vaso es un tiempo: cómo empezamos, hoy y el futuro.</li><li><span>2</span>Tracen una línea como si fuera un líquido.</li><li><span>3</span>Abajo, lo lleno; arriba, lo vacío. Una o dos palabras en cada recuadro.</li><li><span>4</span>En el futuro, sólo lo lleno: sueños y proyectos.</li></ol><p class="din-note" style="margin-top:12px">Miren cada tiempo con ojos de fe: Dios estuvo, está y va a estar.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/nuestra-historia-en-tres-tiempos.pdf" download="nuestra-historia-en-tres-tiempos.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="nuestra-historia-en-tres-tiempos" data-title="Nuestra historia en tres tiempos" data-text="Lo que vivimos, lo que vivimos hoy y lo que soñamos.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="nuestros-genogramas" data-cat="historia">
+          <figure><img src="dinamicas/nuestros-genogramas.jpg" width="827" height="1170" loading="lazy" alt="Lámina Nuestros genogramas"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestra historia y familias</p>
+            <h3>Nuestros genogramas</h3>
+            <p>Un dibujo de las dos familias de origen, generación por generación, para ver qué trae cada uno y qué se repite.</p>
+            <p class="pl-meta">Para imprimir · A4 · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Cada uno dibuja su familia de origen, generación por generación.</li><li><span>2</span>Usen los símbolos: círculo para mujer, cuadrado para varón, una línea para la pareja.</li><li><span>3</span>Busquen juntos lo que se repite: conflictos, dinero, afecto, fe, roles.</li><li><span>4</span>Elijan qué quieren continuar y qué quieren hacer distinto.</li></ol><p class="din-note" style="margin-top:12px">Formar una familia es elegir qué heredamos y qué cambiamos.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/nuestros-genogramas.pdf" download="nuestros-genogramas.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="nuestros-genogramas" data-title="Nuestros genogramas" data-text="Lo que cada uno trae de su casa: quiénes somos y cómo nos vinculamos.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="vasija-de-nuestra-historia" data-cat="historia">
+          <figure><img src="dinamicas/vasija-de-nuestra-historia.jpg" width="827" height="1170" loading="lazy" alt="Lámina Vasija de nuestra historia"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Nuestra historia y familias</p>
+            <h3>Vasija de nuestra historia</h3>
+            <p>Inspirada en el kintsugi: las grietas de la pareja, reparadas con oro. Las crisis que atravesamos y lo que nos dejaron.</p>
+            <p class="pl-meta">Para imprimir · A4 · Papelitos de colores, pintura dorada, plasticola</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Rellenen la vasija pegando papelitos de colores rasgados.</li><li><span>2</span>Pinten de dorado las grietas o peguen papel dorado.</li><li><span>3</span>Junto a cada grieta, escriban una crisis que atravesaron juntos.</li><li><span>4</span>En el oro, escriban lo que esa crisis les dejó.</li></ol><p class="din-note" style="margin-top:12px">Lo que se rompió y se reparó también cuenta nuestra historia.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/vasija-de-nuestra-historia.pdf" download="vasija-de-nuestra-historia.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="vasija-de-nuestra-historia" data-title="Vasija de nuestra historia" data-text="Las crisis que atravesamos y la fuerza que nos dejaron.">Compartir</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="pl-more"><button class="btn btn-line" type="button" id="din-more" aria-expanded="false">Ver las 9 dinámicas</button></div>
+      <p class="din-note">Las dinámicas son recursos para la vida de pareja y no reemplazan una consulta profesional. Si alguna los moviliza más de lo esperado, frenen y háblenlo con alguien de confianza o en sesión. Si en la relación hay miedo o violencia, no son la herramienta adecuada: pidan ayuda (Línea 144).</p>
+    </div>
+  </section>
+
+  <section class="block" id="frases">
+    <div class="wrap">
+      <p class="eyebrow">Para pensar</p>
+      <h2>Frases para pensar en pareja</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:60ch">Ideas breves para leer juntos, guardar o mandarse en un mensaje. Elijan una y conversen: ¿qué nos dice a nosotros, hoy?</p>
+      <div class="topics" role="group" aria-label="Filtrar frases" id="qf-filters">
+        <button type="button" class="topic" data-k="Todas" aria-pressed="true">Todas</button><button type="button" class="topic" data-k="Amor" aria-pressed="false">Amor</button><button type="button" class="topic" data-k="Encuentro" aria-pressed="false">Encuentro</button><button type="button" class="topic" data-k="Comunicación" aria-pressed="false">Comunicación</button><button type="button" class="topic" data-k="Perdón" aria-pressed="false">Perdón</button><button type="button" class="topic" data-k="Tiempo" aria-pressed="false">Tiempo</button><button type="button" class="topic" data-k="Fe" aria-pressed="false">Fe</button>
+      </div>
+      <ul class="qf-grid" id="qf-grid">
+        <li class="qf" data-k="Amor"><span class="qf-k">Amor</span><blockquote>«Amar no es mirarse el uno al otro; es mirar juntos en la misma dirección.»</blockquote><p class="qf-a">— Antoine de Saint-Exupéry</p><button class="qf-copy" type="button" data-q="Amar no es mirarse el uno al otro; es mirar juntos en la misma dirección. — Antoine de Saint-Exupéry">Compartir</button></li>
+        <li class="qf" data-k="Amor"><span class="qf-k">Amor</span><blockquote>«El amor es una actividad, no un afecto pasivo.»</blockquote><p class="qf-a">— Erich Fromm</p><button class="qf-copy" type="button" data-q="El amor es una actividad, no un afecto pasivo. — Erich Fromm">Compartir</button></li>
+        <li class="qf" data-k="Amor"><span class="qf-k">Amor</span><blockquote>«El amor inmaduro dice: «Te amo porque te necesito». El amor maduro dice: «Te necesito porque te amo».»</blockquote><p class="qf-a">— Erich Fromm</p><button class="qf-copy" type="button" data-q="El amor inmaduro dice: «Te amo porque te necesito». El amor maduro dice: «Te necesito porque te amo». — Erich Fromm">Compartir</button></li>
+        <li class="qf" data-k="Amor"><span class="qf-k">Amor</span><blockquote>«El amor es la única manera de captar a otro ser humano en lo más profundo de su personalidad.»</blockquote><p class="qf-a">— Viktor Frankl</p><button class="qf-copy" type="button" data-q="El amor es la única manera de captar a otro ser humano en lo más profundo de su personalidad. — Viktor Frankl">Compartir</button></li>
+        <li class="qf" data-k="Amor"><span class="qf-k">Amor</span><blockquote>«Ama y haz lo que quieras.»</blockquote><p class="qf-a">— San Agustín</p><button class="qf-copy" type="button" data-q="Ama y haz lo que quieras. — San Agustín">Compartir</button></li>
+        <li class="qf" data-k="Encuentro"><span class="qf-k">Encuentro</span><blockquote>«Toda vida verdadera es encuentro.»</blockquote><p class="qf-a">— Martin Buber</p><button class="qf-copy" type="button" data-q="Toda vida verdadera es encuentro. — Martin Buber">Compartir</button></li>
+        <li class="qf" data-k="Encuentro"><span class="qf-k">Encuentro</span><blockquote>«El amor consiste en esto: dos soledades que se protegen, se tocan y se saludan.»</blockquote><p class="qf-a">— Rainer Maria Rilke</p><button class="qf-copy" type="button" data-q="El amor consiste en esto: dos soledades que se protegen, se tocan y se saludan. — Rainer Maria Rilke">Compartir</button></li>
+        <li class="qf" data-k="Encuentro"><span class="qf-k">Encuentro</span><blockquote>«Lo esencial es invisible a los ojos.»</blockquote><p class="qf-a">— Antoine de Saint-Exupéry</p><button class="qf-copy" type="button" data-q="Lo esencial es invisible a los ojos. — Antoine de Saint-Exupéry">Compartir</button></li>
+        <li class="qf" data-k="Encuentro"><span class="qf-k">Encuentro</span><blockquote>«La conexión es la razón por la que estamos aquí.»</blockquote><p class="qf-a">— Brené Brown</p><button class="qf-copy" type="button" data-q="La conexión es la razón por la que estamos aquí. — Brené Brown">Compartir</button></li>
+        <li class="qf" data-k="Comunicación"><span class="qf-k">Comunicación</span><blockquote>«Ver con los ojos de otro, escuchar con los oídos de otro, sentir con el corazón de otro.»</blockquote><p class="qf-a">— Alfred Adler</p><button class="qf-copy" type="button" data-q="Ver con los ojos de otro, escuchar con los oídos de otro, sentir con el corazón de otro. — Alfred Adler">Compartir</button></li>
+        <li class="qf" data-k="Comunicación"><span class="qf-k">Comunicación</span><blockquote>«Que cada uno esté pronto para escuchar, lento para hablar y lento para enojarse.»</blockquote><p class="qf-a">— Santiago 1, 19</p><button class="qf-copy" type="button" data-q="Que cada uno esté pronto para escuchar, lento para hablar y lento para enojarse. — Santiago 1, 19">Compartir</button></li>
+        <li class="qf" data-k="Comunicación"><span class="qf-k">Comunicación</span><blockquote>«Si se enojan, no pequen; que la puesta del sol no los sorprenda enojados.»</blockquote><p class="qf-a">— Efesios 4, 26</p><button class="qf-copy" type="button" data-q="Si se enojan, no pequen; que la puesta del sol no los sorprenda enojados. — Efesios 4, 26">Compartir</button></li>
+        <li class="qf" data-k="Comunicación"><span class="qf-k">Comunicación</span><blockquote>«Las emociones son datos, no órdenes.»</blockquote><p class="qf-a">— Susan David</p><button class="qf-copy" type="button" data-q="Las emociones son datos, no órdenes. — Susan David">Compartir</button></li>
+        <li class="qf" data-k="Perdón"><span class="qf-k">Perdón</span><blockquote>«Permiso, gracias y perdón: tres palabras que cuidan la vida de una familia.»</blockquote><p class="qf-a">— Papa Francisco (paráfrasis)</p><button class="qf-copy" type="button" data-q="Permiso, gracias y perdón: tres palabras que cuidan la vida de una familia. — Papa Francisco (paráfrasis)">Compartir</button></li>
+        <li class="qf" data-k="Perdón"><span class="qf-k">Perdón</span><blockquote>«Sopórtense los unos a los otros y perdónense mutuamente.»</blockquote><p class="qf-a">— Colosenses 3, 13</p><button class="qf-copy" type="button" data-q="Sopórtense los unos a los otros y perdónense mutuamente. — Colosenses 3, 13">Compartir</button></li>
+        <li class="qf" data-k="Perdón"><span class="qf-k">Perdón</span><blockquote>«El perdón no es un acto ocasional, es una actitud permanente.»</blockquote><p class="qf-a">— Atribuida a Martin Luther King Jr.</p><button class="qf-copy" type="button" data-q="El perdón no es un acto ocasional, es una actitud permanente. — Atribuida a Martin Luther King Jr.">Compartir</button></li>
+        <li class="qf" data-k="Tiempo"><span class="qf-k">Tiempo</span><blockquote>«Fue el tiempo que pasaste con tu rosa lo que la hizo tan importante.»</blockquote><p class="qf-a">— Antoine de Saint-Exupéry</p><button class="qf-copy" type="button" data-q="Fue el tiempo que pasaste con tu rosa lo que la hizo tan importante. — Antoine de Saint-Exupéry">Compartir</button></li>
+        <li class="qf" data-k="Tiempo"><span class="qf-k">Tiempo</span><blockquote>«Ten paciencia con todo lo que aún no está resuelto en tu corazón.»</blockquote><p class="qf-a">— Rainer Maria Rilke</p><button class="qf-copy" type="button" data-q="Ten paciencia con todo lo que aún no está resuelto en tu corazón. — Rainer Maria Rilke">Compartir</button></li>
+        <li class="qf" data-k="Tiempo"><span class="qf-k">Tiempo</span><blockquote>«Caminante, no hay camino, se hace camino al andar.»</blockquote><p class="qf-a">— Antonio Machado</p><button class="qf-copy" type="button" data-q="Caminante, no hay camino, se hace camino al andar. — Antonio Machado">Compartir</button></li>
+        <li class="qf" data-k="Tiempo"><span class="qf-k">Tiempo</span><blockquote>«La gratitud no es sólo la mayor de las virtudes, sino la madre de todas las demás.»</blockquote><p class="qf-a">— Cicerón</p><button class="qf-copy" type="button" data-q="La gratitud no es sólo la mayor de las virtudes, sino la madre de todas las demás. — Cicerón">Compartir</button></li>
+        <li class="qf" data-k="Fe"><span class="qf-k">Fe</span><blockquote>«El amor es paciente, es servicial; el amor no es envidioso, no hace alarde, no se envanece.»</blockquote><p class="qf-a">— 1 Corintios 13, 4</p><button class="qf-copy" type="button" data-q="El amor es paciente, es servicial; el amor no es envidioso, no hace alarde, no se envanece. — 1 Corintios 13, 4">Compartir</button></li>
+        <li class="qf" data-k="Fe"><span class="qf-k">Fe</span><blockquote>«El amor todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta.»</blockquote><p class="qf-a">— 1 Corintios 13, 7</p><button class="qf-copy" type="button" data-q="El amor todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta. — 1 Corintios 13, 7">Compartir</button></li>
+        <li class="qf" data-k="Fe"><span class="qf-k">Fe</span><blockquote>«Las aguas torrenciales no podrán apagar el amor, ni los ríos anegarlo.»</blockquote><p class="qf-a">— Cantar de los Cantares 8, 7</p><button class="qf-copy" type="button" data-q="Las aguas torrenciales no podrán apagar el amor, ni los ríos anegarlo. — Cantar de los Cantares 8, 7">Compartir</button></li>
+        <li class="qf" data-k="Fe"><span class="qf-k">Fe</span><blockquote>«La cuerda de tres hilos no se rompe fácilmente.»</blockquote><p class="qf-a">— Eclesiastés 4, 12</p><button class="qf-copy" type="button" data-q="La cuerda de tres hilos no se rompe fácilmente. — Eclesiastés 4, 12">Compartir</button></li>
+      </ul>
+      <div class="pl-more"><button class="btn btn-line" type="button" id="qf-more" aria-expanded="false">Ver más frases</button></div>
+    </div>
+  </section>
+
+  <section class="block" id="lecturas">
+    <div class="wrap">
+      <p class="eyebrow">Lecturas</p>
+      <h2>Libros para leer de a dos</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:60ch">Una selección personal para acompañar el camino de la pareja, desde la mirada humanista, la perspectiva integrativa y la búsqueda de sentido. Las lecturas acompañan, pero no reemplazan, un proceso terapéutico.</p>
+      <ul class="books">
+        <li class="book b-hum"><span class="book-tag">Humanista</span><h3>El arte de amar</h3><p class="book-au">Erich Fromm</p><p>Un clásico: el amor no es algo que «nos pasa», sino un arte que se aprende, con cuidado, responsabilidad, respeto y conocimiento del otro.</p></li>
+        <li class="book b-hum"><span class="book-tag">Humanista</span><h3>El poder de ser vulnerable</h3><p class="book-au">Brené Brown</p><p>Sobre el coraje de mostrarse como uno es. Sin vulnerabilidad no hay intimidad posible.</p></li>
+        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Siete reglas de oro para vivir en pareja</h3><p class="book-au">John M. Gottman y Nan Silver</p><p>Lo que aprendió la investigación sobre las parejas que duran: el aprecio, los gestos de reparación y cómo discutir sin destruirse.</p></li>
+        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Maneras de amar</h3><p class="book-au">Amir Levine y Rachel Heller</p><p>Los estilos de apego en la pareja, con ejemplos claros para entender cómo nos vinculamos y por qué reaccionamos como reaccionamos.</p></li>
+        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Abrázame fuerte</h3><p class="book-au">Sue Johnson</p><p>Las conversaciones que reconectan a una pareja, desde la terapia focalizada en las emociones.</p></li>
+        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Los cinco lenguajes del amor</h3><p class="book-au">Gary Chapman</p><p>Palabras, tiempo, regalos, gestos de servicio y contacto: cada uno expresa y recibe el amor a su manera.</p></li>
+        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Inteligencia erótica</h3><p class="book-au">Esther Perel</p><p>Cómo cuidar el deseo en las relaciones largas, entre la seguridad y la novedad.</p></li>
+        <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>Amoris laetitia</h3><p class="book-au">Papa Francisco</p><p>La exhortación sobre el amor en la familia. El capítulo cuarto, un comentario del himno de la caridad, es una joya para leer en pareja.</p></li>
+        <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>Los cuatro amores</h3><p class="book-au">C. S. Lewis</p><p>Afecto, amistad, eros y caridad: cómo se distinguen y cómo se necesitan los distintos amores.</p></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="block" id="app">
     <div class="wrap">
       <p class="eyebrow">App para los dos</p>
@@ -930,6 +1148,22 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
 (()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
 new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
 (()=>{const mm=document.getElementById("mobile-menu"),wf=document.querySelector(".wa-float");if(mm&&wf)new MutationObserver(()=>wf.style.display=mm.hidden?"":"none").observe(mm,{attributes:true,attributeFilter:["hidden"]});})();
+
+(()=>{let dinF="todas",dinOpen=false;const dm=document.getElementById("din-more"),cards=[...document.querySelectorAll(".din")],N=3;
+const sync=()=>{let i=0;cards.forEach(c=>{const m=dinF==="todas"||c.dataset.cat===dinF;c.hidden=!m||(dinF==="todas"&&!dinOpen&&i++>=N);});
+  if(dm){dm.parentElement.hidden=dinF!=="todas";dm.textContent=dinOpen?"Mostrar menos":"Ver las "+cards.length+" dinámicas";dm.setAttribute("aria-expanded",String(dinOpen));}};
+document.querySelectorAll("#din-filters [data-f]").forEach(b=>b.addEventListener("click",()=>{dinF=b.dataset.f;document.querySelectorAll("#din-filters [data-f]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));sync();}));
+if(dm)dm.addEventListener("click",()=>{dinOpen=!dinOpen;sync();if(!dinOpen)document.getElementById("dinamicas").scrollIntoView({behavior:"smooth"});});
+const fromHash=()=>{const el=document.getElementById(location.hash.slice(1));if(el&&el.classList.contains("din")&&el.hidden){dinF="todas";dinOpen=true;sync();el.scrollIntoView();}};
+addEventListener("hashchange",fromHash);sync();fromHash();})();
+(()=>{let k="Todas",open=false;const qs=[...document.querySelectorAll(".qf")],more=document.getElementById("qf-more"),N=6;
+const sync=()=>{let i=0;qs.forEach(q=>{const m=k==="Todas"||q.dataset.k===k;q.hidden=!m||(k==="Todas"&&!open&&i++>=N);});
+  more.parentElement.hidden=k!=="Todas";more.textContent=open?"Mostrar menos":"Ver las "+qs.length+" frases";more.setAttribute("aria-expanded",String(open));};
+document.querySelectorAll("#qf-filters [data-k]").forEach(b=>b.addEventListener("click",()=>{k=b.dataset.k;document.querySelectorAll("#qf-filters [data-k]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));sync();}));
+more.addEventListener("click",()=>{open=!open;sync();if(!open)document.getElementById("frases").scrollIntoView({behavior:"smooth"});});
+qs.forEach(q=>q.querySelector(".qf-copy").addEventListener("click",e=>{const t="«"+e.target.dataset.q.replace(" — ","» — ")+"\n\nA tu lado · "+location.origin+location.pathname+"#frases";
+  if(navigator.share){navigator.share({text:t}).catch(()=>{});return;}try{navigator.clipboard.writeText(t).then(()=>flash("Frase copiada"),()=>flash("No se pudo copiar"));}catch(_){flash("No se pudo copiar");}}));
+sync();})();
 </script>
 </body>
 </html>
