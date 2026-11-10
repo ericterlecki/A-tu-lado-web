@@ -301,6 +301,20 @@ nav.tabs a{position:relative}
 .inbox-item .dot.read{background:transparent}
 .inbox-item .t{flex:1;display:grid;gap:2px}
 .mi-mood{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Cuaderno */
+nav.tabs .in{grid-template-columns:repeat(6,1fr)!important}
+nav.tabs a{font-size:.68rem!important;padding:6px 0!important}
+.nb-ed{display:grid;gap:10px}
+.nb-ed input[type=text]{font-family:var(--display);font-size:1.15rem}
+.nb-ed textarea{min-height:240px;font-family:var(--quote);font-size:1.1rem;line-height:1.55;background:var(--surface)}
+.nb-prompts{display:flex;flex-wrap:wrap;gap:6px}
+.nb-prompts .chip{font-size:.82rem;padding:6px 11px}
+.nb-meta{font-size:.78rem;color:var(--muted)}
+.nb-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.nb-item b{font-family:var(--display);font-weight:400;font-size:1.05rem}
+.nb-item span{font-size:.86rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nb-item small{font-size:.74rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -495,6 +509,32 @@ nav.tabs a{position:relative}
       </div>
     </section>
 
+    <!-- CUADERNO -->
+    <section class="view" id="v-cuaderno" hidden>
+      <div class="lead">
+        <span class="eyebrow">Escritura libre</span>
+        <h2>Mi cuaderno</h2>
+        <p class="muted">Un espacio propio para escribir lo que quiera: lo que siento por vos, lo que me cuesta decirte, lo que quiero recordar de nosotros, una carta que todavía no te di. Sin preguntas ni casilleros.</p>
+      </div>
+      <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Lo que escribe acá queda sólo en este celular. Su pareja no lo ve, salvo que usted decida compartirle una nota.</span></p>
+      <div class="card nb-ed" id="nb-ed">
+        <input type="text" id="nb-title" placeholder="Título (opcional)" aria-label="Título de la nota">
+        <div class="nb-prompts" id="nb-prompts" aria-label="Para empezar a escribir"></div>
+        <textarea id="nb-text" placeholder="Escriba libremente…" aria-label="Texto de la nota"></textarea>
+        <span class="nb-meta" id="nb-meta">Se guarda solo mientras escribe.</span>
+        <div class="row">
+          <button class="btn" id="nb-save" type="button">Guardar nota</button>
+          <button class="btn ghost" id="nb-new" type="button">Nueva nota</button>
+        </div>
+        <div class="row" id="nb-actions" hidden>
+          <button class="linkbtn" id="nb-share" type="button">Compartir esta nota</button>
+          <button class="linkbtn" id="nb-del" type="button" style="color:var(--danger)">Eliminar</button>
+        </div>
+      </div>
+      <div class="q"><input type="text" id="nb-q" placeholder="Buscar en mis notas" aria-label="Buscar en mis notas"></div>
+      <div class="list" id="nb-list"></div>
+    </section>
+
     <!-- HISTORIAL -->
     <section class="view" id="v-historial" hidden>
       <div class="lead"><h2>Nuestro camino</h2>
@@ -514,6 +554,7 @@ nav.tabs a{position:relative}
           <li><b>Los dos la instalan</b> en su celular y escriben su nombre en Ajustes.</li>
           <li><b>Hoy:</b> un mensaje breve, cuando quieran (idealmente a la noche): cómo llego, qué necesito, qué te agradezco.</li>
           <li><b>Semana:</b> una vez por semana, una conversación más profunda. Cada uno/a la completa a solas y después la charlan juntos.</li>
+          <li><b>Cuaderno:</b> un espacio propio para escribir libremente. Su pareja no lo ve, salvo que usted le comparta una nota.</li>
           <li><b>Recibidos:</b> al tocar el enlace que le llegó por WhatsApp, el mensaje se abre en la app para leerlo y responder.</li>
           <li>Lo escrito queda <b>sólo en los celulares de ustedes</b>. El mensaje viaja dentro del enlace de WhatsApp: no pasa por ningún servidor.</li>
         </ul></div>
@@ -682,6 +723,7 @@ nav.tabs a{position:relative}
     <a href="#hoy" data-nav="hoy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Hoy</a>
     <a href="#semana" data-nav="semana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Semana</a>
     <a href="#recibidos" data-nav="recibidos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/></svg>Recibidos<span class="nbadge" id="nbadge" hidden></span></a>
+    <a href="#cuaderno" data-nav="cuaderno"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11a3 3 0 0 1 3 3v15H8a3 3 0 0 1-3-3z"/><path d="M9 8h6M9 12h6"/></svg>Cuaderno</a>
     <a href="#historial" data-nav="historial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Camino</a>
     <a href="#guia" data-nav="guia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Guía</a>
   </div>
@@ -884,14 +926,14 @@ document.addEventListener("click",e=>{const o=e.target.closest("[data-open]");if
 /* ---------- AJUSTES ---------- */
 function loadPrefs(){$("#a-nombre").value=prefs.nombre||"";$("#a-pareja").value=prefs.pareja||"";$("#a-tel").value=prefs.tel||""}
 $("#a-guardar").onclick=()=>{prefs={nombre:$("#a-nombre").value.trim(),pareja:$("#a-pareja").value.trim(),tel:$("#a-tel").value.trim()};store.set("prefs",prefs);toast("Datos guardados")};
-$("#a-export").onclick=()=>copy(JSON.stringify({app:"a-tu-lado-pareja",v:1,daily,weekly,msgs,prefs}),"Respaldo copiado");
+$("#a-export").onclick=()=>copy(JSON.stringify({app:"a-tu-lado-pareja",v:1,daily,weekly,msgs,prefs,notes}),"Respaldo copiado");
 $("#a-import-btn").onclick=()=>{try{const d=JSON.parse($("#a-import").value);if(d.app!=="a-tu-lado-pareja")throw 0;
-  daily={...daily,...d.daily};weekly={...weekly,...d.weekly};const ids=new Set(msgs.map(m=>m.id));(d.msgs||[]).forEach(m=>{if(!ids.has(m.id))msgs.push(m)});if(d.prefs)prefs={...prefs,...d.prefs};
+  daily={...daily,...d.daily};weekly={...weekly,...d.weekly};const ids=new Set(msgs.map(m=>m.id));(d.msgs||[]).forEach(m=>{if(!ids.has(m.id))msgs.push(m)});if(d.prefs)prefs={...prefs,...d.prefs};if(Array.isArray(d.notes)){const nid=new Set(notes.map(n=>n.id));d.notes.forEach(n=>{if(!nid.has(n.id))notes.push(n)});store.set("notes",notes)}
   store.set("daily",daily);store.set("weekly",weekly);saveMsgs();store.set("prefs",prefs);$("#a-import").value="";loadPrefs();badge();toast("Respaldo restaurado")}
   catch(e){toast("El texto no es un respaldo válido. Pegue el respaldo completo.")}};
 $("#a-borrar").onclick=()=>{$("#a-confirm").hidden=false;$("#a-borrar").hidden=true};
 $("#a-borrar-no").onclick=()=>{$("#a-confirm").hidden=true;$("#a-borrar").hidden=false};
-$("#a-borrar-si").onclick=()=>{daily={};weekly={};msgs=[];store.set("daily",daily);store.set("weekly",weekly);saveMsgs();$("#a-confirm").hidden=true;$("#a-borrar").hidden=false;badge();toast("Datos borrados")};
+$("#a-borrar-si").onclick=()=>{notes=[];store.set("notes",notes);nbNew();daily={};weekly={};msgs=[];store.set("daily",daily);store.set("weekly",weekly);saveMsgs();$("#a-confirm").hidden=true;$("#a-borrar").hidden=false;badge();toast("Datos borrados")};
 loadPrefs();
 
 /* ---------- instalar en el celular ---------- */
@@ -921,8 +963,35 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-goto]");if
 $("#p-share").onclick=async()=>{const url=WEB;const data={title:"A tu lado · App para parejas",text:"Una app para compartir en pareja cómo estamos, lo que valoramos y lo que necesitamos.",url};
   try{if(navigator.share){await navigator.share(data);return}}catch(e){if(e&&e.name==="AbortError")return}copy(url,"Enlace copiado")};
 
+/* ---------- CUADERNO ---------- */
+let notes=store.get("notes",[]);let nbCur=null,nbTimer=null;
+const NBP=["Hoy te agradezco…","Lo que me cuesta decirte…","Lo que admiro de vos…","Lo que me duele…","Un recuerdo nuestro…","Lo que sueño para nosotros…","Lo que quiero cuidar…","Una carta para vos…"];
+const nbEsc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtDT=t=>{const d=new Date(t);return d.toLocaleDateString("es-AR",{day:"numeric",month:"short",year:"numeric"})+" · "+d.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"})};
+function nbSaveSilent(){const ti=$("#nb-title").value.trim(),tx=$("#nb-text").value;
+  if(!ti&&!tx.trim())return;const now=Date.now();
+  if(nbCur===null){nbCur="n"+now;notes.unshift({id:nbCur,t:now,u:now,titulo:ti,texto:tx})}
+  else{const n=notes.find(x=>x.id===nbCur);if(n){n.titulo=ti;n.texto=tx;n.u=now}}
+  store.set("notes",notes);$("#nb-meta").textContent="Guardado · "+fmtDT(now);$("#nb-actions").hidden=false;nbList()}
+function nbOpen(id){const n=notes.find(x=>x.id===id);if(!n)return;nbCur=id;$("#nb-title").value=n.titulo||"";$("#nb-text").value=n.texto||"";
+  $("#nb-meta").textContent="Creada "+fmtDT(n.t)+(n.u!==n.t?" · editada "+fmtDT(n.u):"");$("#nb-actions").hidden=false;$("#nb-ed").scrollIntoView({behavior:"smooth"});nbList()}
+function nbNew(){nbCur=null;$("#nb-title").value="";$("#nb-text").value="";$("#nb-meta").textContent="Se guarda solo mientras escribe.";$("#nb-actions").hidden=true;$("#nb-text").focus();nbList()}
+function nbList(){const q=($("#nb-q").value||"").toLowerCase().trim();
+  const ls=notes.filter(n=>!q||((n.titulo||"")+" "+(n.texto||"")).toLowerCase().includes(q));
+  $("#nb-list").innerHTML=ls.length?ls.map(n=>`<button class="nb-item" type="button" data-nb="${n.id}"${n.id===nbCur?' style="border-color:var(--brand)"':""}><b>${nbEsc(n.titulo||"Sin título")}</b><span>${nbEsc((n.texto||"").slice(0,180))}</span><small>${nbEsc(fmtDT(n.u||n.t))}</small></button>`).join(""):`<p class="empty">${q?"No hay notas con esa búsqueda.":"Todavía no hay notas. Lo que escriba arriba aparece acá."}</p>`}
+function loadCuaderno(){const pr=$("#nb-prompts");if(!pr.children.length){NBP.forEach(t=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=t;b.addEventListener("click",()=>{const ta=$("#nb-text");ta.value=(ta.value&&!ta.value.endsWith("\n")?ta.value+"\n\n":ta.value)+t.replace("…"," ");ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length)});pr.appendChild(b)})}nbList()}
+["#nb-title","#nb-text"].forEach(sel=>$(sel).addEventListener("input",()=>{$("#nb-meta").textContent="Escribiendo…";clearTimeout(nbTimer);nbTimer=setTimeout(nbSaveSilent,800)}));
+$("#nb-save").addEventListener("click",()=>{clearTimeout(nbTimer);if(!$("#nb-title").value.trim()&&!$("#nb-text").value.trim()){toast("La nota está vacía");return}nbSaveSilent();toast("Nota guardada")});
+$("#nb-new").addEventListener("click",()=>{clearTimeout(nbTimer);nbSaveSilent();nbNew()});
+$("#nb-list").addEventListener("click",e=>{const b=e.target.closest("[data-nb]");if(b){clearTimeout(nbTimer);nbSaveSilent();nbOpen(b.dataset.nb)}});
+$("#nb-q").addEventListener("input",nbList);
+$("#nb-share").addEventListener("click",async()=>{const ti=$("#nb-title").value.trim(),tx=$("#nb-text").value.trim();const text=(ti?ti+"\n\n":"")+tx;if(!text)return;
+  if(navigator.share){try{await navigator.share({text});return}catch(e){if(e&&e.name==="AbortError")return}}copy(text,"Nota copiada")});
+let nbDelAsk=false;$("#nb-del").addEventListener("click",()=>{if(nbCur===null)return;if(!nbDelAsk){nbDelAsk=true;$("#nb-del").textContent="¿Seguro/a? Toque de nuevo para eliminar";setTimeout(()=>{nbDelAsk=false;$("#nb-del").textContent="Eliminar"},4000);return}
+  notes=notes.filter(n=>n.id!==nbCur);store.set("notes",notes);nbDelAsk=false;$("#nb-del").textContent="Eliminar";nbNew();toast("Nota eliminada")});
+
 /* ---------- navegación ---------- */
-const VIEWS=["hoy","semana","recibidos","historial","guia","profesional","ajustes"];
+const VIEWS=["hoy","semana","recibidos","cuaderno","historial","guia","profesional","ajustes"];
 async function route(){
   const h=location.hash;
   if(h.startsWith("#m=")){try{const m=await unpack(h.slice(3));
@@ -933,7 +1002,7 @@ async function route(){
       history.replaceState(null,"","#recibidos");showView("recibidos");openMsg(m.id);return}
     catch(e){history.replaceState(null,"","#recibidos");toast("No se pudo abrir el mensaje. Pídale que lo reenvíe.")}}
   const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"hoy";showView(v);
-  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recibidos")loadRec();if(v==="historial")loadHist();
+  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recibidos")loadRec();if(v==="historial")loadHist();if(v==="cuaderno")loadCuaderno();
   window.scrollTo(0,0)}
 function showView(v){VIEWS.forEach(n=>$("#v-"+n).hidden=n!==v);
   $$("[data-nav]").forEach(a=>a.dataset.nav===v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"))}
