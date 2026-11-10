@@ -550,6 +550,88 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 .qf-a{margin:0;color:var(--muted);font-size:.92rem;flex:1}
 .qf-copy{align-self:flex-start;font:inherit;font-size:.85rem;font-weight:600;color:var(--accent);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .qf[hidden],.din[hidden]{display:none}
+
+/* ===== Recursos, libre uso, música y buscador (adaptado de Sígueme) ===== */
+.scene{position:relative;background:var(--petrol);color:var(--cream);border-radius:22px;overflow:hidden}
+.scene-txt{position:relative;z-index:1;max-width:760px}
+.scene .eyebrow{color:var(--terra)}
+.scene h2{color:var(--cream)}
+.scene .po-lead{color:rgba(242,235,219,.88)}
+.scene.photo{padding:44px 34px 150px;background:linear-gradient(100deg,rgba(22,56,66,.93) 0%,rgba(22,56,66,.80) 48%,rgba(22,56,66,.30) 100%),var(--bg) center/cover no-repeat}
+.res-tabs,.book-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.res-tabs button,.book-filters button{font:inherit;font-size:.9rem;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.res-tabs button[aria-pressed="true"],.book-filters button[aria-pressed="true"]{background:var(--petrol);border-color:var(--petrol);color:var(--cream)}
+.pe-grid{display:grid;grid-template-columns:1fr minmax(0,420px);gap:48px;align-items:center;margin-top:28px}
+.pe-grid > *{min-width:0}
+.pe-piece h3{font-size:1.7rem;margin-top:6px}
+.pe-piece p{margin-top:8px;color:var(--muted);max-width:46ch}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px;scrollbar-width:none;background:var(--surface);box-shadow:0 18px 40px -24px rgba(22,56,66,.55)}
+.car-track::-webkit-scrollbar{display:none}
+.car-track figure{margin:0;flex:0 0 100%;scroll-snap-align:start;aspect-ratio:4/5}
+.car-track img{display:block;width:100%;height:100%;object-fit:cover}
+.car-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.car-dots{display:flex;gap:6px;flex-wrap:wrap}
+.car-dots button{width:8px;height:8px;padding:0;border-radius:4px;border:0;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
+.car-dots button[aria-current="true"]{width:22px;background:var(--accent)}
+.car-nav{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.car-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+.car-nav button:disabled{opacity:.35;cursor:default}
+.sub-h{margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
+.sub-h h3{font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
+.sub-h p{margin-top:8px;color:var(--muted);max-width:62ch}
+.guides{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.guide{background:var(--surface);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.guide img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 12px 24px -18px rgba(22,56,66,.8);aspect-ratio:595/842;object-fit:cover;object-position:top}
+.guide h4{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin:4px 0 0}
+.guide p{color:var(--muted);font-size:.93rem}
+.guide .btn{align-self:flex-start;padding:10px 16px;font-size:.9rem;margin-top:auto}
+.guide details{font-size:.88rem;color:var(--muted)}
+.guide summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.free{border-radius:18px;padding:clamp(22px,3.5vw,34px);color:var(--cream);background:linear-gradient(rgba(22,56,66,.84),rgba(22,56,66,.9)),url("fondos/valles-niebla.webp") center 40%/cover no-repeat,var(--petrol)}
+.free .eyebrow{color:var(--terra)}
+.free h2{color:var(--cream);font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
+.free p{margin-top:10px;color:rgba(242,235,219,.86);max-width:70ch}
+.free ul{margin:12px 0 0;padding-left:1.1em;display:grid;gap:4px}
+.free a{color:#E3B866;font-weight:600}
+.hero-music{margin-top:22px;background:rgba(242,235,219,.08);border:1px solid rgba(242,235,219,.2);border-radius:18px;padding:14px 14px 8px;max-width:520px;color:var(--cream)}
+.mus-head{display:flex;align-items:center;gap:10px;margin:0 4px 10px}
+.mus-head svg{width:22px;height:22px;color:#E3B866;flex:none}
+.mus-head p{margin:0;font-size:.95rem}
+.mus-head a{color:#E3B866}
+.hero-music iframe{border-radius:12px;display:block}
+.search-btn{background:none;border:1px solid rgba(242,235,219,.35);color:var(--cream);border-radius:10px;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.search-btn svg{width:19px;height:19px}
+.search-btn:hover{border-color:var(--cream)}
+.search-box{border:0;padding:0;border-radius:18px;width:min(94vw,640px);max-height:84vh;margin:8vh auto auto;background:var(--bg);color:var(--fg);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.search-box::backdrop{background:rgba(15,38,43,.8)}
+.sb-in{padding:16px}
+.sb-field{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--surface)}
+.sb-field svg{width:20px;height:20px;color:var(--muted);flex:none}
+.sb-field input::-webkit-search-cancel-button{display:none}
+.sb-field input{flex:1;border:0;background:transparent;font:inherit;font-size:1.05rem;color:var(--fg);outline:none;min-width:0}
+.sb-field button{border:0;background:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:4px 6px}
+.sb-hint{margin:12px 4px 4px;font-size:.88rem;color:var(--muted)}
+.sb-res{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;max-height:62vh;overflow:auto}
+.sb-res button{width:100%;text-align:left;border:0;background:var(--surface);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--fg);font:inherit}
+.sb-res button:hover,.sb-res button:focus-visible{outline:2px solid var(--terra)}
+.sb-res .sec{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.sb-res .t{display:block;font-weight:600;margin-top:2px}
+.sb-res .sn{display:block;font-size:.85rem;color:var(--muted);margin-top:3px}
+.sb-res mark{background:rgba(227,184,102,.45);color:inherit;border-radius:3px}
+.hl-flash{animation:hlf 1.6s ease}
+@keyframes hlf{0%,40%{box-shadow:0 0 0 4px rgba(217,144,111,.55)}100%{box-shadow:0 0 0 0 rgba(217,144,111,0)}}
+.book[hidden]{display:none}
+#recursos .scene.photo{--bg:url(fondos/bosque-laguna.webp)}
+#lecturas .scene.photo{--bg:url(fondos/lago-turquesa.webp)}
+@media (max-width:1100px){.guides{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.pe-grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:620px){
+  .guides{grid-template-columns:1fr}
+  .scene.photo{padding:28px 20px 130px;background:linear-gradient(180deg,rgba(22,56,66,.92) 0%,rgba(22,56,66,.78) 62%,rgba(22,56,66,.25) 100%),var(--bg) center/cover no-repeat}
+  #recursos .scene.photo{--bg:url(fondos/bosque-laguna-movil.webp)}
+  #lecturas .scene.photo{--bg:url(fondos/lago-turquesa-movil.webp)}
+  .free{background-image:linear-gradient(rgba(22,56,66,.86),rgba(22,56,66,.92)),url("fondos/valles-niebla-movil.webp")}
+}
 </style>
 </head>
 <body>
@@ -573,12 +655,13 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <li><a href="#familias">Familias de origen</a></li>
       <li><a href="#intimidad">Intimidad</a></li>
       <li><a href="#dinero">Dinero</a></li>
-      <li><a href="#dinamicas">Recursos</a></li>
+      <li><a href="#recursos">Recursos</a></li>
       <li><a href="#app">App</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a class="cta-mini" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20acompa%C3%B1amiento%20de%20pareja." target="_blank" rel="noopener">Consultar</a>
+    <button class="search-btn" id="search-btn" type="button" aria-label="Buscar en el sitio" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
     </button>
@@ -592,6 +675,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <li><a href="#familias">Familias de origen</a></li>
         <li><a href="#intimidad">Intimidad</a></li>
         <li><a href="#dinero">Dinero</a></li>
+        <li><a href="#recursos">Carruseles y guías</a></li>
         <li><a href="#dinamicas">Dinámicas</a></li>
         <li><a href="#frases">Frases</a></li>
         <li><a href="#lecturas">Lecturas</a></li>
@@ -615,6 +699,12 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <a class="btn btn-ghost" href="#pareja">Conocer el espacio</a>
       </div>
       <p class="meta">Eric Terlecki · Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología · Mat. Nro. 4331</p>
+      <div class="hero-music">
+        <div class="mus-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><p>Para recorrer el sitio con calma, si quieren, con <b>piano romántico instrumental</b>.</p></div>
+        <iframe title="Piano romántico instrumental en Spotify" src="https://open.spotify.com/embed/playlist/7fc9fCgHXFnUK0K9RLArU8?utm_source=generator&amp;theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="mus-head" style="margin:8px 4px 4px"><p style="font-size:.85rem">¿Baladas latinas en piano? <a href="https://open.spotify.com/search/baladas%20latinas%20piano%20instrumental/playlists" target="_blank" rel="noopener">Buscar más listas en Spotify</a></p></div>
+      </div>
+
     </div>
     <div class="hero-mark" aria-hidden="true">
       <svg viewBox="-150 -150 300 300">
@@ -624,6 +714,22 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
     </div>
   </div>
 </header>
+
+  <section class="block" id="libre-uso">
+    <div class="wrap">
+      <div class="free">
+        <p class="eyebrow">De libre uso</p>
+        <h2>Recursos gratuitos para la vida de pareja</h2>
+        <p>Además del acompañamiento en consultorio, en este sitio hay materiales para usar en casa, de a dos, cuando quieran. Son gratuitos, no hace falta registrarse ni estar en terapia.</p>
+        <ul>
+          <li><a href="#app">La app «Te comparto, me respondés»</a>, para contarse cómo están y responderse.</li>
+          <li><a href="#recursos">Carruseles y guías para completar</a> sobre comunicación, enojo, apego y formas del amor.</li>
+          <li><a href="#dinamicas">Dinámicas para hacer juntos</a>, <a href="#frases">frases para pensar</a> y <a href="#lecturas">libros para leer de a dos</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 
 <main>
   <section class="block" id="pareja">
@@ -791,6 +897,75 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           <p class="po-note">Un ejercicio simple: que cada uno escriba sus tres sueños para los próximos cinco años y después compararlos. El dinero suele ordenarse mejor cuando se sabe para qué.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="recursos">
+    <div class="wrap">
+      <div class="scene photo"><div class="scene-txt"><p class="eyebrow">Recursos</p>
+      <h2>Para leer, completar y conversar</h2>
+      <p class="po-lead">Materiales breves para la vida de pareja: carruseles para leer juntos en el celular, guías para completar, dinámicas para hacer de a dos, frases para pensar y lecturas.</p></div></div>
+
+      <div class="res-tabs" role="group" aria-label="Elegir carrusel"><button type="button" data-car="0" aria-pressed="true">Discutir sin herirnos</button><button type="button" data-car="1" aria-pressed="false">El perdón en la pareja</button><button type="button" data-car="2" aria-pressed="false">Escuchar para entender</button><button type="button" data-car="3" aria-pressed="false">Cómo nos vinculamos</button><button type="button" data-car="4" aria-pressed="false">Los tiempos de cada uno</button></div>
+      <div class="pe-grid">
+        <div class="pe-piece">
+          <span class="pe-tag">Carrusel · <span id="car-n"></span> placas</span>
+          <h3 id="car-t"></h3>
+          <p id="car-d"></p>
+          <ol class="pe-steps" id="car-steps"></ol>
+          <div class="pe-actions">
+            <a class="btn btn-line" id="car-pdf" href="#" download>Descargar PDF</a>
+            <button class="btn btn-line" type="button" id="car-share">Compartir</button>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Carrusel">
+          <div class="car-track" tabindex="0" id="car-track"></div>
+          <div class="car-bar">
+            <div class="car-dots" id="car-dots"></div>
+            <div class="car-nav"><span id="car-count" aria-live="polite"></span><button type="button" id="car-prev" aria-label="Anterior">←</button><button type="button" id="car-next" aria-label="Siguiente">→</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-h" id="guias">
+        <span class="pe-tag">Guías para completar</span>
+        <h3>Guías para la pareja</h3>
+        <p>PDF para leer con calma y completar en el celular o la compu. Cada una tiene una parte para comprender, hojas para cada uno y hojas para completar juntos. Adaptadas de las plantillas de Entre Nosotros.</p>
+      </div>
+      <ul class="guides">
+        <li class="guide" id="guia-pareja-y-comunicacion">
+          <img src="guias/pareja-y-comunicacion.jpg" width="827" height="1170" loading="lazy" alt="Portada de la guía Pareja y comunicación">
+          <span class="pe-tag">Guía para completar · 6 páginas</span>
+          <h4>Pareja y comunicación</h4>
+          <p>Diferencias, crítica, reclamo y pedido, los cinco lenguajes del amor y los espacios. Una hoja para cada uno y una para los dos.</p>
+          <details><summary>¿Cómo se completa?</summary><p style="margin-top:6px">Ábranla en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Hay hojas para cada uno y hojas para completar juntos. Guarden los cambios y, si quieren, tráiganla a la sesión.</p></details>
+          <a class="btn btn-terra" href="guias/pareja-y-comunicacion.pdf" download="pareja-y-comunicacion.pdf">Descargar PDF</a>
+        </li>
+        <li class="guide" id="guia-las-formas-del-amor">
+          <img src="guias/las-formas-del-amor.jpg" width="827" height="1170" loading="lazy" alt="Portada de la guía Las formas del amor">
+          <span class="pe-tag">Guía para completar · 5 páginas</span>
+          <h4>Las formas del amor</h4>
+          <p>Siete maneras de amar y el triángulo de Sternberg: nuestro mapa del amor y los gestos de la semana.</p>
+          <details><summary>¿Cómo se completa?</summary><p style="margin-top:6px">Ábranla en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Hay hojas para cada uno y hojas para completar juntos. Guarden los cambios y, si quieren, tráiganla a la sesión.</p></details>
+          <a class="btn btn-terra" href="guias/las-formas-del-amor.pdf" download="las-formas-del-amor.pdf">Descargar PDF</a>
+        </li>
+        <li class="guide" id="guia-como-nos-vinculamos">
+          <img src="guias/como-nos-vinculamos.jpg" width="827" height="1170" loading="lazy" alt="Portada de la guía Cómo nos vinculamos">
+          <span class="pe-tag">Guía para completar · 5 páginas</span>
+          <h4>Cómo nos vinculamos</h4>
+          <p>El apego en la pareja, el ciclo de persecución y retirada, y cómo construir una base segura.</p>
+          <details><summary>¿Cómo se completa?</summary><p style="margin-top:6px">Ábranla en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Hay hojas para cada uno y hojas para completar juntos. Guarden los cambios y, si quieren, tráiganla a la sesión.</p></details>
+          <a class="btn btn-terra" href="guias/como-nos-vinculamos.pdf" download="como-nos-vinculamos.pdf">Descargar PDF</a>
+        </li>
+        <li class="guide" id="guia-el-enojo-en-la-pareja">
+          <img src="guias/el-enojo-en-la-pareja.jpg" width="827" height="1170" loading="lazy" alt="Portada de la guía El enojo en la pareja">
+          <span class="pe-tag">Guía para completar · 5 páginas</span>
+          <h4>El enojo en la pareja</h4>
+          <p>Emoción, impulso y necesidad; los cuatro jinetes; la pausa y la reparación, con un plan de pausa para los dos.</p>
+          <details><summary>¿Cómo se completa?</summary><p style="margin-top:6px">Ábranla en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Hay hojas para cada uno y hojas para completar juntos. Guarden los cambios y, si quieren, tráiganla a la sesión.</p></details>
+          <a class="btn btn-terra" href="guias/el-enojo-en-la-pareja.pdf" download="el-enojo-en-la-pareja.pdf">Descargar PDF</a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -981,20 +1156,29 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 
   <section class="block" id="lecturas">
     <div class="wrap">
-      <p class="eyebrow">Lecturas</p>
+      <div class="scene photo"><div class="scene-txt"><p class="eyebrow">Lecturas</p>
       <h2>Libros para leer de a dos</h2>
-      <p style="margin-top:12px;color:var(--muted);max-width:60ch">Una selección personal para acompañar el camino de la pareja, desde la mirada humanista, la perspectiva integrativa y la búsqueda de sentido. Las lecturas acompañan, pero no reemplazan, un proceso terapéutico.</p>
+      <p class="po-lead">Una selección personal para acompañar el camino de la pareja, desde la mirada humanista, la perspectiva integrativa y la búsqueda de sentido. Las lecturas acompañan, pero no reemplazan, un proceso terapéutico.</p></div></div>
+      <div class="book-filters" role="group" aria-label="Filtrar lecturas">
+        <button type="button" aria-pressed="true" data-bf="">Todas</button>
+        <button type="button" aria-pressed="false" data-bf="Amar y elegirse">Amar y elegirse</button>
+        <button type="button" aria-pressed="false" data-bf="Comunicación y conflictos">Comunicación y conflictos</button>
+        <button type="button" aria-pressed="false" data-bf="Apego y vínculo">Apego y vínculo</button>
+        <button type="button" aria-pressed="false" data-bf="Deseo e intimidad">Deseo e intimidad</button>
+      </div>
       <ul class="books">
-        <li class="book b-hum"><span class="book-tag">Humanista</span><h3>El arte de amar</h3><p class="book-au">Erich Fromm</p><p>Un clásico: el amor no es algo que «nos pasa», sino un arte que se aprende, con cuidado, responsabilidad, respeto y conocimiento del otro.</p></li>
-        <li class="book b-hum"><span class="book-tag">Humanista</span><h3>El poder de ser vulnerable</h3><p class="book-au">Brené Brown</p><p>Sobre el coraje de mostrarse como uno es. Sin vulnerabilidad no hay intimidad posible.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Siete reglas de oro para vivir en pareja</h3><p class="book-au">John M. Gottman y Nan Silver</p><p>Lo que aprendió la investigación sobre las parejas que duran: el aprecio, los gestos de reparación y cómo discutir sin destruirse.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Maneras de amar</h3><p class="book-au">Amir Levine y Rachel Heller</p><p>Los estilos de apego en la pareja, con ejemplos claros para entender cómo nos vinculamos y por qué reaccionamos como reaccionamos.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Abrázame fuerte</h3><p class="book-au">Sue Johnson</p><p>Las conversaciones que reconectan a una pareja, desde la terapia focalizada en las emociones.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Los cinco lenguajes del amor</h3><p class="book-au">Gary Chapman</p><p>Palabras, tiempo, regalos, gestos de servicio y contacto: cada uno expresa y recibe el amor a su manera.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Inteligencia erótica</h3><p class="book-au">Esther Perel</p><p>Cómo cuidar el deseo en las relaciones largas, entre la seguridad y la novedad.</p></li>
-        <li class="book b-int"><span class="book-tag">Integrativo</span><h3>Amar o depender</h3><p class="book-au">Walter Riso</p><p>Cómo amar sin perderse: la diferencia entre el apego que asfixia y el amor que deja crecer.</p></li>
-        <li class="book b-tra"><span class="book-tag">Sentido</span><h3>El profeta</h3><p class="book-au">Khalil Gibran</p><p>Textos breves y poéticos sobre el amor, el matrimonio y los hijos, para leer en voz alta y conversar.</p></li>
-        <li class="book b-tra"><span class="book-tag">Sentido</span><h3>Cartas a un joven poeta</h3><p class="book-au">Rainer Maria Rilke</p><p>Cartas sobre la soledad, la paciencia y el amor como una tarea que se aprende.</p></li>
+        <li data-cat="Amar y elegirse" class="book b-int"><span class="book-tag">Integrativo</span><h3>El buen amor en la pareja</h3><p class="book-au">Joan Garriga</p><p>Cuando uno y uno suman más que dos. Un clásico sobre lo que hace bueno a un amor: dejar que el otro sea como es, equilibrar el dar y el tomar y hacer lugar a la historia de cada uno.</p></li>
+        <li data-cat="Apego y vínculo" class="book b-int"><span class="book-tag">Integrativo</span><h3>Bailando juntos</h3><p class="book-au">Joan Garriga</p><p>La cara oculta del amor en la pareja y en la familia: los «fantasmas» del pasado, las lealtades a la familia de origen y las dinámicas de fondo que se juegan en el vínculo.</p></li>
+        <li data-cat="Amar y elegirse" class="book b-hum"><span class="book-tag">Humanista</span><h3>El arte de amar</h3><p class="book-au">Erich Fromm</p><p>Un clásico: el amor no es algo que «nos pasa», sino un arte que se aprende, con cuidado, responsabilidad, respeto y conocimiento del otro.</p></li>
+        <li data-cat="Amar y elegirse" class="book b-hum"><span class="book-tag">Humanista</span><h3>El poder de ser vulnerable</h3><p class="book-au">Brené Brown</p><p>Sobre el coraje de mostrarse como uno es. Sin vulnerabilidad no hay intimidad posible.</p></li>
+        <li data-cat="Comunicación y conflictos" class="book b-int"><span class="book-tag">Integrativo</span><h3>Siete reglas de oro para vivir en pareja</h3><p class="book-au">John M. Gottman y Nan Silver</p><p>Lo que aprendió la investigación sobre las parejas que duran: el aprecio, los gestos de reparación y cómo discutir sin destruirse.</p></li>
+        <li data-cat="Apego y vínculo" class="book b-int"><span class="book-tag">Integrativo</span><h3>Maneras de amar</h3><p class="book-au">Amir Levine y Rachel Heller</p><p>Los estilos de apego en la pareja, con ejemplos claros para entender cómo nos vinculamos y por qué reaccionamos como reaccionamos.</p></li>
+        <li data-cat="Apego y vínculo" class="book b-int"><span class="book-tag">Integrativo</span><h3>Abrázame fuerte</h3><p class="book-au">Sue Johnson</p><p>Las conversaciones que reconectan a una pareja, desde la terapia focalizada en las emociones.</p></li>
+        <li data-cat="Comunicación y conflictos" class="book b-int"><span class="book-tag">Integrativo</span><h3>Los cinco lenguajes del amor</h3><p class="book-au">Gary Chapman</p><p>Palabras, tiempo, regalos, gestos de servicio y contacto: cada uno expresa y recibe el amor a su manera.</p></li>
+        <li data-cat="Deseo e intimidad" class="book b-int"><span class="book-tag">Integrativo</span><h3>Inteligencia erótica</h3><p class="book-au">Esther Perel</p><p>Cómo cuidar el deseo en las relaciones largas, entre la seguridad y la novedad.</p></li>
+        <li data-cat="Apego y vínculo" class="book b-int"><span class="book-tag">Integrativo</span><h3>Amar o depender</h3><p class="book-au">Walter Riso</p><p>Cómo amar sin perderse: la diferencia entre el apego que asfixia y el amor que deja crecer.</p></li>
+        <li data-cat="Amar y elegirse" class="book b-tra"><span class="book-tag">Sentido</span><h3>El profeta</h3><p class="book-au">Khalil Gibran</p><p>Textos breves y poéticos sobre el amor, el matrimonio y los hijos, para leer en voz alta y conversar.</p></li>
+        <li data-cat="Amar y elegirse" class="book b-tra"><span class="book-tag">Sentido</span><h3>Cartas a un joven poeta</h3><p class="book-au">Rainer Maria Rilke</p><p>Cartas sobre la soledad, la paciencia y el amor como una tarea que se aprende.</p></li>
       </ul>
     </div>
   </section>
@@ -1050,6 +1234,8 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           <p style="margin-top:12px;color:var(--muted);max-width:40ch">Si tenés otra duda, escribime.</p>
         </div>
         <div class="faq">
+        <details class="faq-q"><summary>¿Los recursos tienen algún costo?</summary><p>No. La app, los carruseles, las guías, las dinámicas y las demás descargas son gratuitos. No hay que pagar ni registrarse, y no hay publicidad.</p></details>
+        <details class="faq-q"><summary>¿Podemos usar los recursos sin hacer terapia?</summary><p>Sí. Están pensados para usarlos en casa, de a dos. Si en algún momento sienten que necesitan más ayuda, pueden escribirme.</p></details>
         <details class="faq-q"><summary>¿Cuándo conviene consultar?</summary><p>No hace falta esperar a una crisis grave. Pueden consultar novios que quieren prepararse para casarse, parejas que discuten siempre por lo mismo, o matrimonios que sienten distancia. Cuanto antes, más fácil es cambiar los patrones.</p></details>
         <details class="faq-q"><summary>¿Tenemos que venir los dos?</summary><p>Lo ideal es que vengan juntos, pero no es obligatorio. A veces uno empieza solo y el otro se suma después. Lo que cambia en uno también cambia el vínculo.</p></details>
         <details class="faq-q"><summary>¿Ustedes deciden si seguimos juntos?</summary><p>No. Mi lugar no es decidir por ustedes ni tomar partido, sino ayudarlos a comprender lo que pasa y a decidir con más claridad y libertad.</p></details>
@@ -1093,6 +1279,13 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 
 <a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20acompa%C3%B1amiento%20de%20pareja." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir una primera entrevista"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir primera entrevista</span></a>
 <div class="toast" id="toast" hidden>Copiado</div>
+<dialog class="search-box" id="search-box" aria-label="Buscar en el sitio">
+  <div class="sb-in">
+    <div class="sb-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sb-q" type="search" placeholder="Buscar: enojo, perdón, apego, dinero…" autocomplete="off" aria-label="Qué quieren buscar"><button type="button" id="sb-x" aria-label="Cerrar">✕</button></div>
+    <p class="sb-hint" id="sb-hint">Escriban una palabra para buscar en todas las secciones, los recursos y las preguntas.</p>
+    <ul class="sb-res" id="sb-res"></ul>
+  </div>
+</dialog>
 <script>
 (function(){
   const b=document.getElementById("menu-btn"), m=document.getElementById("mobile-menu");
@@ -1102,7 +1295,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 })();
 function flash(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(flash.t);flash.t=setTimeout(()=>el.hidden=true,1800);}
 /* Carrusel de psicoeducación */
-document.querySelectorAll(".car").forEach(car=>{
+document.querySelectorAll(".car:has(.car-prev)").forEach(car=>{
   const track=car.querySelector(".car-track");
   const slides=[...track.children], n=slides.length;
   const dots=car.querySelector(".car-dots"), count=car.querySelector(".car-count");
@@ -1163,6 +1356,62 @@ more.addEventListener("click",()=>{open=!open;sync();if(!open)document.getElemen
 qs.forEach(q=>q.querySelector(".qf-copy").addEventListener("click",e=>{const t="«"+e.target.dataset.q.replace(" — ","» — ")+"\n\nA tu lado · "+location.origin+location.pathname+"#frases";
   if(navigator.share){navigator.share({text:t}).catch(()=>{});return;}try{navigator.clipboard.writeText(t).then(()=>flash("Frase copiada"),()=>flash("No se pudo copiar"));}catch(_){flash("No se pudo copiar");}}));
 sync();})();
+
+(()=>{const CAR=[{"slug": "discutir-sin-herirnos", "desc": "Qué hay detrás del enojo, las cuatro formas de discutir que más desgastan y cómo hacer una pausa que ayude.", "pasos": ["Emoción, impulso y necesidad", "Los cuatro jinetes", "Los antídotos", "La pausa que ayuda"], "titulo": "Discutir sin herirnos", "n": 6}, {"slug": "el-perdon-en-la-pareja", "desc": "Lo que el perdón es y no es, cómo pedir perdón de verdad y cómo se reconstruye la confianza.", "pasos": ["Lo que el perdón no es", "Pedir perdón", "Perdonar", "Reconstruir la confianza"], "titulo": "El perdón en la pareja", "n": 6}, {"slug": "escuchar-para-entender", "desc": "La empatía en la pareja: reflejar, validar, preguntar antes de aconsejar y esperar el propio turno.", "pasos": ["Escuchar no es esperar mi turno", "Reflejar", "Validar no es darle la razón", "Preguntar antes de aconsejar"], "titulo": "Escuchar para entender", "n": 6}, {"slug": "como-nos-vinculamos", "desc": "Qué es el apego, cómo se juega en la pareja, el ciclo de persecución y retirada, y cómo construir más seguridad.", "pasos": ["¿Qué es el apego?", "Distintas maneras de vincularnos", "El ciclo que nos atrapa", "Hacia más seguridad"], "titulo": "Cómo nos vinculamos", "n": 6}, {"slug": "los-tiempos-de-cada-uno", "desc": "Cada uno tiene su ritmo para cambiar, decidir, sanar o acercarse. Cómo acompañarse sin compararse ni apurarse.", "pasos": ["Dos ritmos distintos", "No es una línea recta", "La trampa de compararse", "Cómo acompañarse"], "titulo": "Los tiempos de cada uno", "n": 6}];
+const $=x=>document.querySelector(x);const track=$("#car-track"),dots=$("#car-dots"),count=$("#car-count"),prev=$("#car-prev"),next=$("#car-next");
+let cur=0,n=0,sel=0;const rm=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+function load(i){sel=i;const c=CAR[i];n=c.n;$("#car-t").textContent=c.titulo;$("#car-d").textContent=c.desc;$("#car-n").textContent=n;
+  $("#car-steps").innerHTML=c.pasos.map((p,j)=>`<li><span>${j+1}</span>${p}</li>`).join("");
+  $("#car-pdf").href=`carruseles/${c.slug}/${c.slug}.pdf`;$("#car-pdf").setAttribute("download",c.slug+".pdf");
+  track.innerHTML="";dots.innerHTML="";
+  for(let j=1;j<=n;j++){const f=document.createElement("figure");f.innerHTML=`<img src="carruseles/${c.slug}/${String(j).padStart(2,"0")}.jpg" width="1080" height="1350" loading="${j<3?"eager":"lazy"}" alt="${c.titulo}, placa ${j} de ${n}">`;track.appendChild(f);
+    const d=document.createElement("button");d.type="button";d.setAttribute("aria-label","Ir a la placa "+j);d.addEventListener("click",()=>go(j-1));dots.appendChild(d)}
+  track.scrollLeft=0;sync();document.querySelectorAll("[data-car]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.car===i?"true":"false"))}
+function go(i){i=Math.max(0,Math.min(n-1,i));track.scrollTo({left:i*track.clientWidth,behavior:rm()?"auto":"smooth"})}
+function sync(){cur=Math.round(track.scrollLeft/Math.max(1,track.clientWidth));count.textContent=(cur+1)+" / "+n;
+  [...dots.children].forEach((d,j)=>d.setAttribute("aria-current",j===cur?"true":"false"));prev.disabled=cur===0;next.disabled=cur===n-1}
+let raf;track.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(sync)});
+prev.addEventListener("click",()=>go(cur-1));next.addEventListener("click",()=>go(cur+1));
+track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1)}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1)}});
+document.querySelectorAll("[data-car]").forEach(b=>b.addEventListener("click",()=>load(+b.dataset.car)));
+$("#car-share").addEventListener("click",()=>{const c=CAR[sel],url=location.origin+location.pathname+"#recursos";const data={title:c.titulo+" · A tu lado",text:c.desc,url};
+  if(navigator.share){navigator.share(data).catch(()=>{});return}try{navigator.clipboard.writeText(url).then(()=>flash("Enlace copiado"),()=>flash(url))}catch(e){flash(url)}});
+load(0);})();
+document.querySelectorAll("[data-bf]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.bf;document.querySelectorAll("[data-bf]").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));document.querySelectorAll(".books > li").forEach(li=>li.hidden=!!f&&li.dataset.cat!==f)}));
+(function(){
+const d=document.getElementById("search-box"),q=document.getElementById("sb-q"),res=document.getElementById("sb-res"),hint=document.getElementById("sb-hint");
+const norm=t=>(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+let idx=null;
+function txt(el){if(!el)return"";if(typeof el==="string")return el;const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const a=[];let n;while(n=w.nextNode()){if(n.parentElement.closest("svg,script,style"))continue;a.push(n.nodeValue)}return a.join(" ")}
+function secName(el){const s=el.closest("section,header");if(!s)return"";const e=s.querySelector(".eyebrow");return e?e.textContent.trim():(s.querySelector("h2")||{}).textContent||""}
+function reveal(el){if(el.hidden){const f=document.querySelector('#qf-filters [data-k="Todas"],#din-filters [data-f="todas"]');}
+  if(el.classList.contains("qf")&&el.hidden){document.querySelector('#qf-filters [data-k="Todas"]').click();if(el.hidden)document.getElementById("qf-more").click()}
+  if(el.classList.contains("din")&&el.hidden){document.querySelector('#din-filters [data-f="todas"]').click();if(el.hidden)document.getElementById("din-more").click()}
+  if(el.matches(".books > li")&&el.hidden){document.querySelector('[data-bf=""]').click()}}
+function build(){idx=[];
+ const add=(el,t,body,sec,act)=>{if(!t)return;idx.push({el,t:t.trim(),body:txt(body).replace(/\s+/g," ").trim(),sec:sec||secName(el),act})};
+ document.querySelectorAll("main section[id], section.block, section.contact").forEach(sc=>{const h=sc.querySelector("h2");if(h)add(sc,h.textContent,sc.querySelector(".po-lead,.intro,p"),(sc.querySelector(".eyebrow")||{}).textContent)});
+ document.querySelectorAll("article.service,.guide,.din,.po-box,.po-cols h4").forEach(el=>{const h=el.matches("h4")?el:el.querySelector("h3,h4");add(el,h?h.textContent:"",el.matches("h4")?el.nextElementSibling:el)});
+ document.querySelectorAll("details.faq-q").forEach(el=>add(el,el.querySelector("summary").textContent,el.querySelector("p")||el,"Preguntas frecuentes",()=>{el.open=true}));
+ document.querySelectorAll(".books > li").forEach(el=>{const h=el.querySelector("h3");if(h)add(el,h.textContent,el,"Lecturas")});
+ document.querySelectorAll(".qf").forEach(el=>add(el,el.querySelector("blockquote").textContent,el,"Frases para pensar"));
+ document.querySelectorAll(".res-tabs [data-car]").forEach(b=>add(document.querySelector(".res-tabs"),"Carrusel: "+b.textContent,b.textContent+" "+(document.querySelector("#car-d")||{}).textContent,"Recursos",()=>b.click()));
+}
+function esc(t){return t.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function snip(body,nq){const nb=norm(body);const i=nb.indexOf(nq);if(i<0)return esc(body.slice(0,110))+(body.length>110?"…":"");const a=Math.max(0,i-45),b=Math.min(body.length,i+nq.length+70);return(a?"…":"")+esc(body.slice(a,i))+"<mark>"+esc(body.slice(i,i+nq.length))+"</mark>"+esc(body.slice(i+nq.length,b))+(b<body.length?"…":"")}
+function run(){if(!idx)build();const v=q.value.trim();res.innerHTML="";if(v.length<2){hint.hidden=false;hint.textContent="Escriban una palabra para buscar en todas las secciones, los recursos y las preguntas.";return}
+ const terms=norm(v).split(/\s+/).filter(Boolean);const seen=new Set();const out=[];
+ for(const it of idx){const nt=norm(it.t),nb=norm(it.body);if(!terms.every(t=>nt.includes(t)||nb.includes(t)))continue;const key=it.t+"|"+it.sec;if(seen.has(key))continue;seen.add(key);out.push({it,score:terms.reduce((s,t)=>s+(nt.includes(t)?3:0)+(nb.includes(t)?1:0),0)})}
+ out.sort((a,b)=>b.score-a.score);hint.hidden=out.length>0;if(!out.length){hint.textContent="No encontré resultados para «"+v+"». Prueben con otra palabra.";return}
+ out.slice(0,30).forEach(({it})=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";
+  b.innerHTML='<span class="sec">'+esc((it.sec||"").trim())+'</span><span class="t">'+esc(it.t)+'</span><span class="sn">'+snip(it.body,terms[0])+'</span>';
+  b.addEventListener("click",()=>{d.close();reveal(it.el);it.el.scrollIntoView({behavior:"smooth",block:"center"});it.el.classList.remove("hl-flash");void it.el.offsetWidth;it.el.classList.add("hl-flash");if(it.act)setTimeout(it.act,450)});li.appendChild(b);res.appendChild(li)})}
+document.getElementById("search-btn").addEventListener("click",()=>{d.showModal();q.focus();q.select()});
+document.getElementById("sb-x").addEventListener("click",()=>d.close());
+d.addEventListener("click",e=>{if(e.target===d)d.close()});
+q.addEventListener("input",run);
+document.addEventListener("keydown",e=>{if((e.key==="/"&&!/input|textarea/i.test(document.activeElement.tagName))||((e.ctrlKey||e.metaKey)&&e.key==="k")){e.preventDefault();d.showModal();q.focus()}});
+})();
 </script>
 </body>
 </html>
