@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A tu lado · Para compartir con mi pareja cómo estoy, lo que valoro y lo que necesito. Lo escrito queda sólo en el celular.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="A tu lado">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>A tu lado · Mi registro</title>
+<meta name="theme-color" content="#1f4955">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: app de una columna, encabezado de marca arriba, pestañas fijas abajo; cada vista es una "hoja" tranquila */
+:root{
+  --bg:#f7f2e9;        /* crema de la web */
+  --surface:#fbf7f0;
+  --sunk:#efe6d6;
+  --fg:#1d2f33;
+  --muted:#56686b;
+  --line:#d9cdb9;
+  --brand:#1f4955;     /* azul petróleo del logo */
+  --brand-soft:#d6e0e0;
+  --warm:#d9906f;      /* terracota */
+  --warm-ink:#b35a33;
+  --dot:#d9906f;       /* terracota del logo */
+  --dot-soft:#f3dccf;
+  --dot-ink:#9a4f30;
+  --danger:#a8402a;
+  --on-brand:#f2ebdb;
+  --head-bg:#1f4955;
+  --head-fg:#f2ebdb;
+  --logo-a:#f2ebdb; --logo-b:#d9906f; --logo-c:#e3b866;
+  --m7:#4f8a5b; --m6:#79a368; --m5:#a8b86a; --m4:#e3b866; --m3:#e39c5e; --m2:#d9774f; --m1:#b0473a;
+  --display:"Gloock", Georgia, "Times New Roman", serif;
+  --quote:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f262b; --surface:#163339; --sunk:#1c3d44; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e;
+  --brand:#8fc0c9; --brand-soft:#21434d; --warm:#e08a60; --warm-ink:#e08a60; --dot:#e3a07f; --dot-soft:#4a3128; --dot-ink:#eab196; --danger:#f08a70; --on-brand:#10232a;
+  --head-bg:#173a44; --head-fg:#f2ebdb;
+  --m7:#6fae7c; --m6:#93bd80; --m5:#bccb80; --m4:#ecc77e; --m3:#eba774; --m2:#e48a66; --m1:#d2685a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f262b; --surface:#163339; --sunk:#1c3d44; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e;
+  --brand:#8fc0c9; --brand-soft:#21434d; --warm:#e08a60; --warm-ink:#e08a60; --dot:#e3a07f; --dot-soft:#4a3128; --dot-ink:#eab196; --danger:#f08a70; --on-brand:#10232a;
+  --head-bg:#173a44; --head-fg:#f2ebdb;
+  --m7:#6fae7c; --m6:#93bd80; --m5:#bccb80; --m4:#ecc77e; --m3:#eba774; --m2:#e48a66; --m1:#d2685a; color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 calc(88px + env(safe-area-inset-bottom,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head-bg)}
+.wrap{max-width:620px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h2{font-size:1.65rem}
+h3{font-size:1.15rem}
+p{margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--warm-ink);font-weight:700}
+
+/* encabezado */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--head-bg);color:var(--head-fg);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 12px;margin-inline:-16px;border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--dot),var(--head-fg)) 1}
+@media (min-width:652px){header.top{margin-inline:0;border-radius:0 0 14px 14px}}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--head-fg);min-width:0}
+.brand svg{width:42px;height:38px;flex:none}
+.brand .name{font-family:var(--display);font-size:1.3rem;font-weight:400;line-height:1}
+.brand .sub{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--logo-b);margin-top:3px}
+.top-actions{display:flex;gap:6px}
+.icon-btn{border:1px solid color-mix(in srgb,var(--head-fg) 40%,transparent);background:transparent;border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--head-fg);text-decoration:none}
+.icon-btn[aria-current="page"]{background:var(--head-fg);color:var(--head-bg);border-color:var(--head-fg)}
+
+/* pestañas */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
+  padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+nav.tabs .in{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+nav.tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;border-radius:10px;
+  text-decoration:none;color:var(--muted);font-size:.74rem;font-weight:600}
+nav.tabs a svg{width:22px;height:22px}
+nav.tabs a[aria-current="page"]{color:var(--brand);background:var(--brand-soft);box-shadow:inset 0 -2px 0 var(--warm)}
+
+/* vistas */
+main{padding-block:22px 10px}
+section.view{display:grid;gap:18px}
+.lead{display:grid;gap:6px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:14px}
+.q{display:grid;gap:10px}
+.q > label, .q > .label{font-weight:600}
+.hint{font-size:.85rem;color:var(--muted);font-weight:400}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:.92rem}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+
+.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mood .disc.q{display:grid;place-items:center;border:1px dashed var(--muted);background:transparent;color:var(--muted);font-weight:700;font-size:.8rem}
+.qn{display:flex;gap:12px;align-items:flex-start}
+.qn .num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--dot-soft);color:var(--dot-ink);display:grid;place-items:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.qn .txt{display:grid;gap:2px;font-weight:600}
+.scale{display:grid;gap:8px}
+.scale-head,.scale-row{display:grid;grid-template-columns:minmax(0,1fr) repeat(5,34px);gap:6px;align-items:center}
+.scale-head span{text-align:center;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.scale-row > span{font-size:.92rem;min-width:0}
+.dotbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:.8rem;font-weight:700;color:var(--muted);padding:0}
+.dotbtn[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.seg{display:grid;grid-template-columns:repeat(var(--n,4),1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-left:1px solid var(--line);background:var(--bg);padding:9px 2px;cursor:pointer;font-size:.84rem}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand);font-weight:600}
+.weeknav{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:5px}
+.weeknav span{font-weight:600;text-align:center;flex:1}
+.weeknav .dotbtn:disabled{opacity:.35;cursor:default}
+.daymoods{display:grid;gap:8px}
+.daymood{display:grid;grid-template-columns:5.5rem 18px minmax(0,1fr);gap:10px;align-items:center}
+.daymood .disc{width:18px;height:18px;border-radius:50%;background:var(--sunk);border:1px dashed var(--line)}
+.daymood .disc.on{border:0}
+.daymood select{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:9px 10px}
+.note{font-size:.88rem;color:var(--muted);border-left:3px solid var(--dot);padding:4px 0 4px 12px;max-width:65ch}
+.afecto{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:3px}
+.afecto .dotbtn{width:100%;height:36px;border-radius:8px;font-variant-numeric:tabular-nums}
+.afecto-x{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted)}
+.seg.wrap button{font-size:.78rem;line-height:1.2;padding:9px 3px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.opt{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 10px;cursor:pointer;text-align:left;display:grid;gap:4px;align-content:start}
+.opt b{font-size:.92rem}
+.opt span{font-size:.78rem;color:var(--muted);line-height:1.35}
+.opt[aria-pressed="true"]{background:var(--brand);border-color:var(--brand)}
+.opt[aria-pressed="true"] b,.opt[aria-pressed="true"] span{color:var(--on-brand)}
+@media (max-width:440px){.opts{grid-template-columns:1fr}}
+.weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.weekdays .dotbtn{width:100%;height:40px;border-radius:10px}
+/* guía: diagramas */
+.timeline3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tcol{border-radius:12px;padding:12px 10px;display:grid;gap:4px;text-align:center;align-content:start;background:var(--bg);border:1px solid var(--line)}
+.tcol.now{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.tcol .k{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+.tcol .s{font-family:var(--quote);font-style:italic;font-size:.95rem;line-height:1.25}
+.tcol .e{font-size:.75rem;opacity:.85}
+.senses{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;text-align:center}
+.senses div{display:grid;gap:2px;justify-items:center;font-size:.72rem;color:var(--muted);line-height:1.25}
+.senses b{font-family:var(--display);font-size:1.8rem;color:var(--brand);line-height:1}
+.pairs{display:grid;gap:8px}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:8px;align-items:center;font-size:.88rem}
+.pair .hard{background:var(--dot-soft);border-radius:10px;padding:8px 10px}
+.pair .kind{background:var(--brand-soft);border-radius:10px;padding:8px 10px}
+.pair i{font-style:normal;color:var(--muted);text-align:center}
+.trio,.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}
+.trio div,.pillars div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px;display:grid;gap:3px;font-size:.8rem;color:var(--muted);line-height:1.35}
+.trio b,.pillars b{color:var(--fg);font-size:.9rem}
+@media (max-width:440px){.trio{grid-template-columns:1fr}}
+.closing{font-family:var(--quote);font-style:italic;font-size:1.1rem;text-align:center;color:var(--muted);max-width:44ch;margin:0 auto}
+.mood{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 2px;cursor:pointer;display:grid;justify-items:center;gap:6px;font-size:.78rem;text-align:center;line-height:1.2}
+.mood .disc{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--fg) 12%,transparent)}
+.mood[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:var(--brand-soft)}
+
+input[type=text],input[type=date],textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px}
+textarea{min-height:84px;resize:vertical}
+.range{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+.range input{width:100%;accent-color:var(--brand)}
+.range output{font-variant-numeric:tabular-nums;font-weight:700;min-width:2.2ch;text-align:right;color:var(--brand)}
+
+.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:700;cursor:pointer;background:var(--brand);color:var(--on-brand);text-align:center;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+.btn.danger{background:transparent;border:1px solid var(--danger);color:var(--danger)}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row > .btn{flex:1 1 160px}
+
+.datebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.datebar input{width:auto}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--dot-soft);color:var(--dot-ink)}
+
+/* resumen semanal */
+.week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.wd{display:grid;justify-items:center;gap:5px;font-size:.75rem;color:var(--muted)}
+.wd .disc{width:30px;height:30px;border-radius:50%;border:1px dashed var(--line)}
+.wd .disc.on{border:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--bg);border-radius:10px;padding:10px;display:grid;gap:2px}
+.stat b{font-family:var(--display);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.stat span{font-size:.75rem;color:var(--muted)}
+
+/* historial */
+.chart{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;align-items:end;height:120px;padding-top:6px}
+.bar{border-radius:6px 6px 3px 3px;background:var(--sunk);min-height:6px}
+.chart-x{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;font-size:.66rem;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.75rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+details.entry{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+details.entry summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:12px}
+details.entry summary::-webkit-details-marker{display:none}
+details.entry .disc{width:14px;height:14px;border-radius:50%;flex:none}
+details.entry .body{padding:0 14px 14px;display:grid;gap:6px;font-size:.92rem}
+details.entry .body dt{font-weight:600;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+details.entry .body dd{margin:0 0 4px}
+.list{display:grid;gap:8px}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:18px;color:var(--muted);text-align:center;font-size:.92rem}
+
+/* frases */
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px 16px;display:grid;gap:12px}
+.quote blockquote{margin:0;font-family:var(--quote);font-size:1.25rem;line-height:1.4;font-style:italic}
+.quote .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.quote cite{font-style:normal;font-weight:600;font-size:.9rem}
+.qtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ill{width:64px;height:64px;border-radius:14px;background:var(--head-bg);flex:none;padding:6px;display:block}
+.ill svg{width:100%;height:100%;display:block}
+.tag{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--warm-ink);font-weight:700}
+.linkbtn{background:none;border:0;color:var(--brand);font-weight:700;cursor:pointer;padding:4px 0;font-size:.88rem}
+
+/* guía */
+details.guide{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+details.guide summary{cursor:pointer;padding:16px 18px;font-family:var(--display);font-size:1.15rem;font-weight:400;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.guide summary::-webkit-details-marker{display:none}
+details.guide summary::after{content:"+";color:var(--brand);font-family:var(--body)}
+details.guide[open] summary::after{content:"–"}
+details.guide .body{padding:0 18px 18px;display:grid;gap:10px;max-width:65ch}
+details.guide ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.breath{display:grid;justify-items:center;gap:10px;padding:10px 0}
+.breath .ring{width:120px;height:120px;border-radius:50%;background:var(--brand-soft);display:grid;place-items:center;transform:scale(.7);transition:transform 4s ease-in-out}
+.breath .ring span{font-weight:700;color:var(--brand);font-size:.9rem}
+.alert{background:var(--dot-soft);border-radius:var(--r);padding:16px 18px;display:grid;gap:6px}
+.alert h3{color:var(--dot-ink)}
+
+/* profesional */
+.pro-hero{display:grid;gap:14px;justify-items:start}
+.pro-hero svg{width:88px;height:80px;background:var(--head-bg);border-radius:18px;padding:14px}
+.pro-hero .t{font-family:var(--display);font-size:2rem;font-weight:400;line-height:1.1}
+.creds{display:flex;flex-wrap:wrap;gap:6px}
+.creds span{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--surface)}
+dl.kv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:baseline}
+dl.kv dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;min-width:0;overflow-wrap:anywhere}
+.copy{border:0;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:3px 10px;font-size:.75rem;font-weight:700;cursor:pointer}
+
+/* modal y aviso */
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);
+  background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:30;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal{position:fixed;inset:0;z-index:40;background:color-mix(in srgb,var(--fg) 55%,transparent);display:grid;place-items:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.modal .box{background:var(--surface);border-radius:var(--r);padding:18px;max-width:440px;width:100%;display:grid;gap:12px;max-height:100%;overflow:auto}
+.modal img{border-radius:10px;border:1px solid var(--line);width:100%}
+
+/* instalar, confidencialidad, instagram */
+.install{background:var(--head-bg);color:var(--head-fg);border-radius:var(--r);padding:16px 18px;display:grid;gap:10px}
+.install h3{color:var(--head-fg)}
+.install p{font-size:.9rem;color:color-mix(in srgb,var(--head-fg) 82%,transparent)}
+.install ol{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.9rem}
+.install .row .btn{flex:0 1 auto}
+.install .btn{background:var(--logo-b);color:#1f2f33}
+.install .btn.ghost{background:transparent;color:var(--head-fg);border-color:color-mix(in srgb,var(--head-fg) 40%,transparent)}
+.ico{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em}
+.inst-ios + .inst-android,.inst-android + .inst-ios{margin-top:18px}
+.privacy{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--muted);background:var(--sunk);border-radius:12px;padding:10px 12px}
+.privacy svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--brand)}
+.privacy a{color:var(--brand);font-weight:600}
+#conf,details.guide{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
+.conf ul{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:.93rem}
+.ig-card{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.ig-badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--logo-c),var(--logo-b) 55%,#b35a33);color:#fff}
+.ig-badge svg{width:28px;height:28px}
+.sos-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sos-list li{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline}
+.sos-list b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--dot-ink);grid-row:span 2;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sos-list span{font-weight:600;font-size:.92rem}
+.sos-list small{color:var(--muted);font-size:.82rem;grid-column:2}
+footer.sig{padding-block:26px 6px;text-align:center;font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.msg{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);padding:14px 16px;display:grid;gap:10px}
+.msg .from{display:flex;align-items:center;gap:10px}
+.msg .from .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:600;background:var(--brand-soft);color:var(--brand)}
+.msg .from.me .av{background:color-mix(in srgb,var(--warm) 25%,transparent);color:var(--warm-ink,var(--warm))}
+.msg dl{margin:0;display:grid;gap:8px}
+.msg dt{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--warm-ink,var(--warm));font-weight:600}
+.msg dd{margin:0;white-space:pre-wrap}
+.msg blockquote{margin:0;padding:8px 12px;border-left:3px solid var(--warm);background:var(--sunk);border-radius:8px;font-size:.9rem}
+.pregunta{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-family:var(--display,Georgia,serif);font-size:1.15rem;line-height:1.35}
+.three{display:grid;gap:8px}
+.three input{width:100%}
+.nbadge{position:absolute;top:2px;right:18%;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--warm);color:#fff;font-size:.7rem;font-weight:700;display:grid;place-items:center}
+nav.tabs a{position:relative}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.steps3 div{background:var(--sunk);border-radius:12px;padding:10px 6px;font-size:.82rem;line-height:1.3}
+.steps3 b{display:block;font-family:var(--display,Georgia,serif);font-size:1.3rem;color:var(--warm-ink,var(--warm))}
+.inbox-item{display:flex;gap:10px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:12px;cursor:pointer;font:inherit;color:inherit}
+.inbox-item .dot{width:9px;height:9px;border-radius:50%;background:var(--warm);flex:none}
+.inbox-item .dot.read{background:transparent}
+.inbox-item .t{flex:1;display:grid;gap:2px}
+.mi-mood{display:flex;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="-150 -150 300 300">
+    <circle cx="-37" cy="-56" r="31" fill="var(--logo-a)"/><circle cx="37" cy="-56" r="31" fill="var(--logo-b)"/>
+    <path fill="var(--logo-c)" d="M-112 -8 A112 112 0 0 0 112 -8 A12 12 0 0 0 88 -8 A88 88 0 0 1 -88 -8 A12 12 0 0 0 -112 -8 Z"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#profesional" aria-label="A tu lado, ver datos del profesional">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <div><div class="name">A tu lado</div><div class="sub">Lic. Eric Terlecki</div></div>
+    </a>
+    <div class="top-actions">
+      <a class="icon-btn" href="#profesional" data-nav="profesional">Contacto</a>
+      <a class="icon-btn" href="#ajustes" data-nav="ajustes">Ajustes</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOY -->
+    <section class="view" id="v-hoy" hidden>
+      <div class="lead">
+        <span class="eyebrow" id="hoy-fecha"></span>
+        <h2>Hoy te comparto</h2>
+        <p class="muted">Un mensaje breve para que su pareja sepa cómo llega hoy. Cada uno/a completa el suyo y se lo envía al otro/a. No es para evaluar al otro/a, sino para dejarse conocer.</p>
+      </div>
+      <div class="install" id="install-card" hidden>
+        <h3>Tengan la app a mano en el celular</h3>
+        <p>Instálenla los dos en la pantalla de inicio: se abre como cualquier aplicación, sin buscarla en el navegador, y funciona sin conexión.</p>
+        <div id="install-steps">
+          <div class="inst-ios"><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Compartir"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg> en la barra de abajo.</li><li>Deslice hacia abajo y elija <b>«Agregar a inicio»</b>.</li><li>Toque <b>«Agregar»</b> arriba a la derecha. El ícono de A tu Lado aparece en su pantalla de inicio.</li></ol></div>
+          <div class="inst-android"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-label="menú de tres puntos"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg> <b>(tres puntos)</b> arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>. El ícono de A tu Lado aparece en su pantalla de inicio.</li></ol><p class="small muted">¿Usa Samsung Internet? Toque el menú <b>☰</b> abajo a la derecha, elija <b>«Agregar página a»</b> y luego <b>«Pantalla de inicio»</b>.</p></div>
+        </div>
+        <div class="row"><button class="btn" id="install-btn" type="button" hidden>Instalar la app</button><button class="btn ghost" id="install-later" type="button">Ahora no</button></div>
+      </div>
+      <div class="card">
+        <div class="steps3"><div><b>1</b>Lo completo yo</div><div><b>2</b>Te lo envío por WhatsApp</div><div><b>3</b>Lo leés y me respondés</div></div>
+        <div class="datebar"><label class="small muted">Fecha <input type="date" id="d-fecha"></label><span class="badge" id="hoy-estado">Sin enviar</span></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">1</span><span class="txt">¿Cómo llego hoy?</span></div>
+        <div class="moods" id="d-animo" role="group" aria-label="Cómo llego hoy"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">2</span><span class="txt">Lo que sentí hoy<span class="hint">Puede marcar varias.</span></span></div>
+        <div class="chips" id="d-emo"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">3</span><span class="txt">Algo que me pasó hoy y quiero contarte<span class="hint">Algo que me alegró, me preocupó o me quedó dando vueltas.</span></span></div>
+        <textarea id="d-paso" rows="3"></textarea>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">4</span><span class="txt">Hoy necesitaría de vos…<span class="hint">Pedir lo que necesito ayuda a que el otro/a no tenga que adivinarlo.</span></span></div>
+        <div class="chips" id="d-necesito"></div>
+        <input type="text" id="d-necesito-txt" placeholder="Algo más concreto (opcional)" aria-label="Lo que necesito, en concreto">
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">5</span><span class="txt">Hoy te agradezco…<span class="hint">Un gesto, una palabra o algo que valoré de vos, aunque sea pequeño.</span></span></div>
+        <textarea id="d-gracias" rows="2"></textarea>
+        <div class="q"><label for="d-querido">Hoy me sentí querido/a cuando… <span class="hint">· opcional</span></label><textarea id="d-querido" rows="2"></textarea></div>
+      </div>
+
+      <div class="row">
+        <a class="btn" id="d-wa" href="#" target="_blank" rel="noopener">Enviar a mi pareja por WhatsApp</a>
+        <button class="btn ghost" id="d-share" type="button">Compartir de otra forma</button>
+      </div>
+      <p class="closing">Contar cómo estoy es una forma de dejarte entrar.</p>
+    </section>
+
+    <!-- SEMANA -->
+    <section class="view" id="v-semana" hidden>
+      <div class="lead">
+        <span class="eyebrow">Nuestra semana · <span id="sem-rango"></span></span>
+        <h2>Nuestro encuentro semanal</h2>
+        <p class="muted">Una conversación más profunda, una vez por semana. Cada uno/a la completa a solas y con calma, se la envía al otro/a y después se buscan un rato para charlarla juntos.</p>
+      </div>
+      <div class="card"><div class="weeknav"><button class="dotbtn" id="sem-prev" aria-label="Semana anterior">‹</button><span id="sem-rango2"></span><button class="dotbtn" id="sem-next" aria-label="Semana siguiente">›</button></div>
+        <p class="small muted" id="sem-resumen"></p></div>
+
+      <div class="card">
+        <div class="qn"><span class="num">1</span><span class="txt">¿Cómo viví nuestra semana como pareja?</span></div>
+        <div class="seg wrap" id="w-general"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">2</span><span class="txt">¿Cómo estuvimos en cada área?<span class="hint">1 = me preocupa · 5 = muy bien. Es cómo lo viví yo, no una nota para el otro/a.</span></span></div>
+        <div class="scale" id="w-areas"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">3</span><span class="txt">Tres cosas que valoré de vos esta semana<span class="hint">Concretas: «cuando preparaste el desayuno el martes», mejor que «sos bueno/a».</span></span></div>
+        <div class="three"><input type="text" id="w-v1" aria-label="Primera cosa que valoré"><input type="text" id="w-v2" aria-label="Segunda cosa que valoré"><input type="text" id="w-v3" aria-label="Tercera cosa que valoré"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">4</span><span class="txt">Un momento en que me sentí cerca de vos</span></div>
+        <textarea id="w-cerca" rows="2"></textarea>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">5</span><span class="txt">Algo que me dolió o me quedó pendiente<span class="hint">Opcional. Hable de una situación concreta y de lo que le pasó a usted, no de cómo «es» el otro/a.</span></span></div>
+        <div class="q"><label for="w-cuando">Cuando…</label><textarea id="w-cuando" rows="2" placeholder="Lo que pasó, como lo vería una cámara."></textarea></div>
+        <div class="q"><span class="label">Me sentí…</span><div class="chips" id="w-senti"></div></div>
+        <div class="q"><label for="w-importa">Porque para mí es importante…</label><textarea id="w-importa" rows="2"></textarea></div>
+        <div class="q"><label for="w-pido">Te pido…</label><textarea id="w-pido" rows="2" placeholder="Un pedido concreto y posible."></textarea></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">6</span><span class="txt">De mi parte…<span class="hint">Reconocer lo propio desarma más que cualquier argumento.</span></span></div>
+        <div class="q"><label for="w-cargo">Me hago cargo de…</label><textarea id="w-cargo" rows="2" placeholder="Algo que hice o dejé de hacer y que pudo afectarte."></textarea></div>
+        <div class="q"><label for="w-perdon">Te pido perdón por… <span class="hint">· opcional</span></label><textarea id="w-perdon" rows="2"></textarea></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">7</span><span class="txt">Para la semana que viene</span></div>
+        <div class="q"><label for="w-necesito">Lo que necesito de vos</label><textarea id="w-necesito" rows="2"></textarea></div>
+        <div class="q"><span class="label">Te propongo…</span><div class="chips" id="w-planes"></div>
+          <input type="text" id="w-plan-txt" placeholder="Otra propuesta o un detalle (día, lugar)" aria-label="Otra propuesta"></div>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">8</span><span class="txt">Un sueño o un deseo para nosotros</span></div>
+        <textarea id="w-sueno" rows="2"></textarea>
+      </div>
+
+      <div class="card">
+        <div class="qn"><span class="num">9</span><span class="txt">Una pregunta para conocernos más<span class="hint">Respóndala usted; su pareja también la va a responder.</span></span></div>
+        <div class="pregunta" id="w-pregunta"></div>
+        <div class="row"><button class="btn ghost" id="w-otra-preg" type="button">Otra pregunta</button></div>
+        <div class="q"><label for="w-mi-resp">Mi respuesta</label><textarea id="w-mi-resp" rows="2"></textarea></div>
+      </div>
+
+      <div class="row">
+        <a class="btn" id="w-wa" href="#" target="_blank" rel="noopener">Enviar a mi pareja por WhatsApp</a>
+        <button class="btn ghost" id="w-share" type="button">Compartir de otra forma</button>
+      </div>
+      <p class="note">Después de leerse, busquen un rato tranquilo para conversarlo, sin pantallas. Si el tema es difícil, empiecen por los puntos 3 y 4.</p>
+    </section>
+
+    <!-- RECIBIDOS -->
+    <section class="view" id="v-recibidos" hidden>
+      <div class="lead"><h2>Lo que me compartiste</h2>
+        <p class="muted">Cuando su pareja le envía un mensaje desde la app, ábralo desde el enlace de WhatsApp: aparece acá, para leerlo con calma y responder.</p></div>
+      <div id="r-lista" style="display:grid;gap:8px"></div>
+
+      <div id="r-detalle" hidden style="display:grid;gap:14px">
+        <button class="linkbtn" id="r-volver" type="button">‹ Volver a la lista</button>
+        <div id="r-msg"></div>
+        <div id="r-form" style="display:grid;gap:14px">
+          <div class="lead" style="padding:0"><h2 style="font-size:1.4rem">Te respondo</h2>
+            <p class="muted small">Antes de responder, lea despacio. La idea no es discutir ni explicar, sino mostrarle que lo/a escuchó.</p></div>
+          <div class="card">
+            <div class="qn"><span class="num">1</span><span class="txt">Lo que entendí de lo que me contaste<span class="hint">Con sus palabras, sin juzgar ni corregir: «Entiendo que…, ¿es así?».</span></span></div>
+            <textarea id="r-entendi" rows="3"></textarea>
+          </div>
+          <div class="card">
+            <div class="qn"><span class="num">2</span><span class="txt">Te quiero decir…</span></div>
+            <div class="chips" id="r-valido"></div>
+          </div>
+          <div class="card">
+            <div class="qn"><span class="num">3</span><span class="txt">Lo que me generó leerte</span></div>
+            <textarea id="r-siento" rows="2"></textarea>
+          </div>
+          <div class="card">
+            <div class="qn"><span class="num">4</span><span class="txt">Lo que puedo hacer por vos<span class="hint">Una respuesta concreta a lo que me pediste.</span></span></div>
+            <div class="chips" id="r-ofrezco"></div>
+            <textarea id="r-ofrezco-txt" rows="2" placeholder="En concreto, me comprometo a…"></textarea>
+          </div>
+          <div class="card" id="r-preg-card" hidden>
+            <div class="qn"><span class="num">5</span><span class="txt">Mi respuesta a tu pregunta<span class="hint" id="r-preg"></span></span></div>
+            <textarea id="r-preg-resp" rows="2"></textarea>
+          </div>
+          <div class="card">
+            <div class="qn"><span class="num">✦</span><span class="txt">Algo más que te quiero decir <span class="hint">· opcional</span></span></div>
+            <textarea id="r-mas" rows="2"></textarea>
+          </div>
+          <div class="row">
+            <a class="btn" id="r-wa" href="#" target="_blank" rel="noopener">Enviar mi respuesta</a>
+            <button class="btn ghost" id="r-share" type="button">Compartir de otra forma</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIAL -->
+    <section class="view" id="v-historial" hidden>
+      <div class="lead"><h2>Nuestro camino</h2>
+        <p class="muted">Todo lo que se compartieron, en orden. Volver a leerlo de vez en cuando ayuda a ver cuánto fueron construyendo.</p></div>
+      <div class="stats" id="h-stats"></div>
+      <div id="h-lista" style="display:grid;gap:8px"></div>
+    </section>
+
+    <!-- GUÍA -->
+    <section class="view" id="v-guia" hidden>
+      <div class="lead"><span class="eyebrow">Para comunicarnos mejor</span><h2>Guía breve</h2>
+        <p class="muted">Recursos para usar en pareja. Si algo genera dudas, lo conversamos en sesión.</p></div>
+
+      <details class="guide" open>
+        <summary>Cómo usar esta aplicación</summary>
+        <div class="body"><ul>
+          <li><b>Los dos la instalan</b> en su celular y escriben su nombre en Ajustes.</li>
+          <li><b>Hoy:</b> un mensaje breve, cuando quieran (idealmente a la noche): cómo llego, qué necesito, qué te agradezco.</li>
+          <li><b>Semana:</b> una vez por semana, una conversación más profunda. Cada uno/a la completa a solas y después la charlan juntos.</li>
+          <li><b>Recibidos:</b> al tocar el enlace que le llegó por WhatsApp, el mensaje se abre en la app para leerlo y responder.</li>
+          <li>Lo escrito queda <b>sólo en los celulares de ustedes</b>. El mensaje viaja dentro del enlace de WhatsApp: no pasa por ningún servidor.</li>
+        </ul></div>
+      </details>
+
+      <details class="guide" id="guia-instalar">
+        <summary>Instalar la app en el celular</summary>
+        <div class="body">
+          <p>Así la tiene en la pantalla de inicio, con el logo de A tu Lado, y se abre aunque no tenga conexión.</p>
+          <div class="inst-ios"><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Compartir"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg> en la barra de abajo.</li><li>Deslice hacia abajo y elija <b>«Agregar a inicio»</b>.</li><li>Toque <b>«Agregar»</b> arriba a la derecha. El ícono de A tu Lado aparece en su pantalla de inicio.</li></ol></div>
+          <div class="inst-android"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-label="menú de tres puntos"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg> <b>(tres puntos)</b> arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>. El ícono de A tu Lado aparece en su pantalla de inicio.</li></ol><p class="small muted">¿Usa Samsung Internet? Toque el menú <b>☰</b> abajo a la derecha, elija <b>«Agregar página a»</b> y luego <b>«Pantalla de inicio»</b>.</p></div>
+          <p class="small muted">Si ya la instaló, se actualiza sola cada vez que la abre con internet.</p>
+        </div>
+      </details>
+
+      <details class="guide">
+        <summary>Escuchar para entender</summary>
+        <div class="body">
+          <p>Cuando el otro/a cuenta algo, la tentación es explicar, defenderse o dar una solución enseguida. Antes de eso, lo que más ayuda es que se sienta comprendido/a.</p>
+          <ul>
+            <li><b>Reflejar:</b> decir con mis palabras lo que entendí. «Entiendo que te sentiste solo/a con lo de los chicos, ¿es así?»</li>
+            <li><b>Validar:</b> mostrar que tiene sentido lo que siente desde su lugar. Validar no es darle la razón: es reconocer su experiencia.</li>
+            <li><b>Preguntar antes de aconsejar:</b> «¿Querés que te ayude a pensarlo o necesitás que te escuche?»</li>
+            <li><b>Esperar mi turno:</b> mi punto de vista también importa, y va a ser mejor escuchado después.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="guide">
+        <summary>Hablar desde mí</summary>
+        <div class="body">
+          <p>Lo que se dice como ataque se recibe como ataque. Hablar de lo que me pasa, de una situación concreta y con un pedido posible abre la puerta en lugar de cerrarla.</p>
+          <div class="pairs">
+            <div class="pair"><span class="hard">«Nunca me escuchás.»</span><i>→</i><span class="kind">«Anoche, cuando te conté lo del trabajo y miraste el celular, me sentí solo/a. ¿Podemos hablarlo hoy sin pantallas?»</span></div>
+            <div class="pair"><span class="hard">«Sos un desastre con la plata.»</span><i>→</i><span class="kind">«Me preocupa cómo cerramos el mes. Necesito que nos sentemos a ver los gastos juntos.»</span></div>
+            <div class="pair"><span class="hard">«Siempre elegís a tu familia antes que a mí.»</span><i>→</i><span class="kind">«El domingo me hubiera gustado que me consultaras antes de decir que sí. Para mí es importante que decidamos juntos.»</span></div>
+          </div>
+          <p class="note">La fórmula: <b>Cuando…</b> (lo que pasó) · <b>me sentí…</b> · <b>porque para mí es importante…</b> · <b>te pido…</b></p>
+        </div>
+      </details>
+
+      <details class="guide">
+        <summary>Los cuatro jinetes y sus antídotos</summary>
+        <div class="body">
+          <p class="small muted">El investigador John Gottman describió cuatro formas de discutir que, cuando se vuelven habituales, desgastan mucho a la pareja. Cada una tiene un antídoto.</p>
+          <div class="pillars">
+            <div><b>Crítica → arranque suave</b>atacar a la persona en vez de hablar del problema → hablar desde mí</div>
+            <div><b>Desprecio → aprecio</b>ironía, burla, mirar desde arriba → buscar y decir lo que valoro</div>
+            <div><b>Defensa → asumir mi parte</b>justificarme o contraatacar → «en esto tenés razón»</div>
+            <div><b>Evasión → pausa y volver</b>cerrarme y dejar de responder → pedir una pausa y retomar</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="guide">
+        <summary>Cuando la discusión sube de tono</summary>
+        <div class="body"><ul>
+          <li><b>Pedir una pausa</b> sin portazo: «Estoy muy enojado/a, necesito veinte minutos y lo seguimos».</li>
+          <li>En la pausa, <b>calmar el cuerpo</b> (caminar, respirar lento) en lugar de seguir ensayando argumentos.</li>
+          <li><b>Volver siempre:</b> la pausa es para retomar, no para escaparse del tema.</li>
+          <li>Usar <b>gestos de reparación</b>: una broma suave, una mano en el hombro, un «perdón, empecé mal». Recibirlos también es parte del trabajo.</li>
+        </ul></div>
+      </details>
+
+      <details class="guide">
+        <summary>Pedir perdón y perdonar</summary>
+        <div class="body">
+          <p>Un perdón verdadero nombra lo que hice, reconoce cómo te afectó y no lleva «pero». Perdonar no es olvidar ni hacer como que no pasó: es elegir no seguir cobrándole al otro/a esa deuda, y a veces lleva tiempo.</p>
+          <div class="trio">
+            <div><b>Reconocer</b>«Te hablé mal delante de tus padres.»</div>
+            <div><b>Comprender</b>«Entiendo que te sentiste humillado/a.»</div>
+            <div><b>Reparar</b>«No quiero que se repita. ¿Qué necesitás de mí?»</div>
+          </div>
+        </div>
+      </details>
+
+      <div class="alert">
+        <h3>Si hay miedo o violencia</h3>
+        <p>Estos ejercicios suponen una relación en la que los dos se sienten seguros. Si hay amenazas, control, humillaciones o violencia, no son la herramienta adecuada: pida ayuda.</p>
+        <ul class="sos-list">
+          <li><b>144</b><span>Violencia de género</span><small>Atención, contención y asesoramiento. Gratuita, las 24 horas, en todo el país.</small></li>
+          <li><b>911</b><span>Emergencias</span><small>Ante un riesgo inmediato.</small></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROFESIONAL -->
+    <section class="view" id="v-profesional" hidden>
+      <div class="pro-hero">
+        <svg aria-hidden="true"><use href="#logo"/></svg>
+        <div class="eyebrow">A tu lado · Novios y matrimonios</div>
+        <div class="t">Lic. Eric Terlecki</div>
+        <div class="creds"><span>Lic. en Psicología</span><span>Esp. en Psicoterapia Clínica</span><span>Mat. N.º 4331</span></div>
+        <p class="muted" style="max-width:60ch">Acompañamiento de parejas con un enfoque humanista, integrativo y trascendente.</p>
+      </div>
+      <div class="card">
+        <h3>Atención</h3>
+        <ul style="margin:0;padding-left:1.2em;display:grid;gap:4px">
+          <li>Novios: conocerse, discernir y prepararse para el matrimonio</li><li>Matrimonios: comunicación, etapas y crisis</li>
+          <li>También psicoterapia individual</li><li>Modalidad presencial o virtual</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Contacto</h3>
+        <dl class="kv">
+          <dt>WhatsApp</dt><dd><span>341 660-1847</span><button class="copy" data-copy="3416601847">Copiar</button><a class="copy" href="https://wa.me/5493416601847" target="_blank" rel="noopener" style="text-decoration:none">Escribir</a></dd>
+          <dt>Correo</dt><dd><span>ericterlecki@gmail.com</span><button class="copy" data-copy="ericterlecki@gmail.com">Copiar</button></dd>
+          <dt>Consultorio</dt><dd><span>Rizzuto 3451, Rosario</span><a class="copy" href="https://www.google.com/maps/search/?api=1&query=Rizzuto+3451+Rosario+Santa+Fe" target="_blank" rel="noopener" style="text-decoration:none">Mapa</a></dd>
+          <dt>Horarios</dt><dd><span>Lunes a viernes de 8 a 21 h · Sábados de 8 a 13 h</span></dd>
+          <dt>Modalidad</dt><dd><span>Presencial en Pasaje Rizzuto 3451 (Uruguay al 1150) o virtual por Meet</span></dd>
+          <dt>Sesiones</dt><dd><span>Una hora aprox., semanales o quincenales</span></dd>
+        </dl>
+        <div class="row"><a class="btn" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisi%C3%A9ramos%20consultar%20por%20un%20turno%20de%20pareja." target="_blank" rel="noopener">Escribir por WhatsApp</a></div>
+      </div>
+      <div class="card conf" id="conf">
+        <h3>Confidencialidad</h3>
+        <ul>
+          <li><b>Lo que escriben queda sólo en sus celulares.</b> La app no lo guarda en ningún servidor. Tampoco yo puedo verlo.</li>
+          <li><b>El mensaje viaja dentro del enlace</b> que se envían por WhatsApp, y queda también en ese chat.</li>
+          <li>Si borran los datos del navegador o cambian de teléfono, lo guardado se pierde: en Ajustes pueden hacer una copia.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Recomendar la app</h3>
+        <p class="small muted">Compártala con otra pareja.</p>
+        <div class="row"><button class="btn ghost" id="p-share" type="button">Compartir enlace</button></div>
+      </div>
+    </section>
+
+    <!-- AJUSTES -->
+    <section class="view" id="v-ajustes" hidden>
+      <div class="lead"><h2>Ajustes</h2><p class="muted">Todo se guarda sólo en este celular.</p></div>
+      <div class="card">
+        <h3>Instalar en el celular</h3>
+        <div class="row"><button class="btn" id="a-install" type="button">Instalar la app</button><a class="btn ghost" href="#guia" data-goto="guia-instalar">Ver los pasos</a></div>
+      </div>
+      <div class="card">
+        <div class="q"><label for="a-nombre">Mi nombre</label><input type="text" id="a-nombre" placeholder="Cómo me llama mi pareja"></div>
+        <div class="q"><label for="a-pareja">Nombre de mi pareja</label><input type="text" id="a-pareja"></div>
+        <div class="q"><label for="a-tel">WhatsApp de mi pareja <span class="hint">· opcional, para enviarle directo</span></label>
+          <input type="tel" id="a-tel" placeholder="Con código de área, sin 0 ni 15: 341 5551234"></div>
+        <button class="btn" id="a-guardar">Guardar</button>
+      </div>
+      <div class="card">
+        <h3>Copia de seguridad</h3>
+        <p class="small muted">Copie este respaldo y guárdelo (por ejemplo, enviándoselo a usted mismo/a por WhatsApp).</p>
+        <div class="row"><button class="btn ghost" id="a-export">Copiar respaldo</button></div>
+        <div class="q"><label for="a-import">Restaurar un respaldo</label>
+          <textarea id="a-import" placeholder="Pegue aquí el texto del respaldo"></textarea>
+          <button class="btn ghost" id="a-import-btn">Restaurar</button></div>
+      </div>
+      <div class="card">
+        <h3>Borrar mis datos</h3>
+        <p class="small muted">Elimina todo lo guardado en este celular. No se puede deshacer.</p>
+        <button class="btn danger" id="a-borrar">Borrar todo</button>
+        <div id="a-confirm" hidden class="row"><span class="small">¿Seguro/a?</span><button class="btn danger" id="a-borrar-si">Sí, borrar</button><button class="btn ghost" id="a-borrar-no">Cancelar</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sig">A tu lado · Lic. Eric Terlecki · Mat. 4331 · Rosario</footer>
+</div>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="in">
+    <a href="#hoy" data-nav="hoy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Hoy</a>
+    <a href="#semana" data-nav="semana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Semana</a>
+    <a href="#recibidos" data-nav="recibidos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/></svg>Recibidos<span class="nbadge" id="nbadge" hidden></span></a>
+    <a href="#historial" data-nav="historial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Camino</a>
+    <a href="#guia" data-nav="guia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Guía</a>
+  </div>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const MOODS=[{v:7,t:"Muy bien"},{v:6,t:"Bien"},{v:4,t:"Más o menos"},{v:3,t:"Cansado/a"},{v:2,t:"Preocupado/a"},{v:1,t:"Mal"}];
+const moodName=v=>(MOODS.find(m=>m.v===v)||{t:"—"}).t;
+const EMOS=["Alegría","Paz","Gratitud","Ternura","Entusiasmo","Esperanza","Cansancio","Preocupación","Ansiedad","Tristeza","Enojo","Frustración","Soledad","Miedo","Nostalgia","Confusión"];
+const NECESITO=["Que me escuches","Un abrazo","Un rato juntos","Un rato a solas","Ayuda con algo concreto","Que me tengas paciencia","Hablar de algo pendiente","Que salgamos o hagamos algo lindo","Nada en especial: sólo contarte"];
+const GENERAL=["Muy cerca","Bien","Más o menos","Distantes","Difícil"];
+const AREAS=["Comunicación","Tiempo de calidad juntos","Ternura e intimidad","Trabajo en equipo en la casa","Hijos y familia","Dinero y decisiones","Familias de origen","Fe y sentido compartido","Diversión y proyectos"];
+const SENTI=["Solo/a","Triste","Enojado/a","Herido/a","No tenido/a en cuenta","Preocupado/a","Cansado/a","Confundido/a","Con miedo","Desvalorizado/a"];
+const PLANES=["Una cita a solas","Una caminata","Cocinar juntos","Un rato sin pantallas","Rezar juntos","Ver a amigos o familia","Ordenar algo pendiente","Hablar de un tema importante"];
+const VALIDO=["Gracias por contármelo","Tiene sentido que te sientas así","No me había dado cuenta","Me pasa algo parecido","Me cuesta, pero quiero entenderte","Te pido perdón","Te perdono","Necesito pensarlo y lo hablamos"];
+const OFREZCO=["Te escucho esta noche","Te doy un abrazo","Me ocupo de algo concreto","Buscamos un rato juntos","Te doy tu espacio","Lo hablamos con calma","Acepto tu propuesta"];
+const PREGUNTAS=["¿Qué momento de nuestra historia te gustaría volver a vivir?","¿Qué te hace sentir más querido/a por mí?","¿Qué te preocupa estos días y todavía no me contaste?","¿Qué sueño tuyo te gustaría que te ayude a cumplir?","¿Qué aprendiste de tu familia sobre el amor?","¿Qué es lo que más te gusta de cómo somos como pareja?","¿En qué momento del día te gustaría que estemos más conectados?","¿Qué cosa pequeña que hago te alegra el día?","¿Qué te gustaría que hagamos distinto cuando discutimos?","¿Cómo te imaginás que seremos dentro de diez años?","¿Qué te da paz cuando estás mal?","¿Qué recuerdo de tu infancia te sigue acompañando?","¿Qué necesitás de mí cuando estás cansado/a?","¿Qué te enamoró de mí al principio, y qué te enamora hoy?","¿Qué te gustaría que celebremos más?","¿Qué te cuesta pedirme?","¿Qué lugar ocupa Dios, o el sentido de la vida, en tu día a día?","¿Qué tradición te gustaría que tengamos como familia?","¿Cuándo te sentiste más orgulloso/a de nosotros?","¿Qué te gustaría aprender o empezar este año?","¿Qué te ayuda a sentirte en equipo conmigo?","¿Qué es algo que te gustaría que yo conozca mejor de vos?","¿Qué te hace reír de nosotros?","¿Cómo te gustaría que nos cuidemos cuando estamos lejos o con mucho trabajo?"];
+const DIAS=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
+const WEB=location.origin+location.pathname;
+/* ---------- almacenamiento local ---------- */
+const store={
+  get(k,d){try{const v=localStorage.getItem("atl_"+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("atl_"+k,JSON.stringify(v));return true}catch(e){return false}}
+};
+
+/* ---------- fechas ---------- */
+const pad=n=>String(n).padStart(2,"0");
+const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const parse=s=>{const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const monday=d=>{const x=new Date(d);const w=(x.getDay()+6)%7;x.setDate(x.getDate()-w);x.setHours(0,0,0,0);return x};
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const fmtLong=d=>d.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
+const fmtShort=d=>d.toLocaleDateString("es-AR",{day:"numeric",month:"short"});
+const moodColor=v=>v>0?`var(--m${v})`:"var(--sunk)";
+
+/* ---------- avisos ---------- */
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("show"),2200)}
+async function copy(text,ok){try{await navigator.clipboard.writeText(text);toast(ok||"Copiado")}catch(e){
+  const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();
+  try{document.execCommand("copy");toast(ok||"Copiado")}catch(_){toast("Seleccione el texto y cópielo manualmente")}ta.remove()}}
+let prefs=store.get("prefs",{nombre:"",pareja:"",tel:""}), daily=store.get("daily",{}), weekly=store.get("weekly",{}), msgs=store.get("msgs",[]);
+const saveMsgs=()=>store.set("msgs",msgs);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const inicial=s=>(s||"?").trim().charAt(0).toUpperCase()||"?";
+const yo=()=>prefs.nombre||"Yo", el=()=>prefs.pareja||"mi pareja";
+
+/* ---------- grupos de opciones ---------- */
+function chipGroup(el,opts,multi=true){el.innerHTML="";opts.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=o;b.setAttribute("aria-pressed","false");
+  b.onclick=()=>{if(!multi)el.querySelectorAll(".chip").forEach(x=>x!==b&&x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");el.dispatchEvent(new Event("input",{bubbles:true}))};el.appendChild(b)})}
+const getChips=el=>[...el.querySelectorAll('.chip[aria-pressed="true"]')].map(b=>b.textContent);
+const setChips=(el,v)=>el.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",(v||[]).includes(b.textContent)?"true":"false"));
+function segGroup(el,opts){el.innerHTML="";opts.forEach(o=>{const b=document.createElement("button");b.type="button";b.textContent=o;b.setAttribute("aria-pressed","false");
+  b.onclick=()=>{const on=b.getAttribute("aria-pressed")==="true";el.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed",on?"false":"true");el.dispatchEvent(new Event("input",{bubbles:true}))};el.appendChild(b)})}
+const getSeg=el=>(el.querySelector('[aria-pressed="true"]')||{}).textContent||"";
+const setSeg=(el,v)=>el.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===v?"true":"false"));
+function makeScale(el,items){
+  el.innerHTML=`<div class="scale-head"><span></span>${[1,2,3,4,5].map(n=>`<span>${n}</span>`).join("")}</div>`+
+    items.map((a,i)=>`<div class="scale-row" data-i="${i}"><span>${a}</span>${[1,2,3,4,5].map(n=>`<button type="button" class="dotbtn" aria-pressed="false" aria-label="${a}: ${n}" data-n="${n}">${n}</button>`).join("")}</div>`).join("");
+  el.addEventListener("click",e=>{const b=e.target.closest(".dotbtn");if(!b)return;const on=b.getAttribute("aria-pressed")==="true";
+    b.parentElement.querySelectorAll(".dotbtn").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed",on?"false":"true");el.dispatchEvent(new Event("input",{bubbles:true}))});
+}
+const getScale=(el,items)=>Object.fromEntries([...el.querySelectorAll(".scale-row")].map(r=>{const b=r.querySelector('[aria-pressed="true"]');return[items[+r.dataset.i],b?+b.dataset.n:0]}).filter(x=>x[1]));
+const setScale=(el,items,v)=>el.querySelectorAll(".scale-row").forEach(r=>{const n=(v||{})[items[+r.dataset.i]]||0;r.querySelectorAll(".dotbtn").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.n===n?"true":"false"))});
+
+/* ---------- el mensaje viaja dentro del enlace ---------- */
+const b64u=bytes=>{let s="";const a=new Uint8Array(bytes);for(let i=0;i<a.length;i+=0x8000)s+=String.fromCharCode.apply(null,a.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")};
+const unb64u=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const bin=atob(s),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);return a};
+async function pack(obj){const raw=new TextEncoder().encode(JSON.stringify(obj));
+  try{if(typeof CompressionStream==="undefined")throw 0;const buf=await new Response(new Blob([raw]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer();return "z"+b64u(buf)}
+  catch(e){return "j"+b64u(raw)}}
+async function unpack(s){const t=s[0],bytes=unb64u(s.slice(1));
+  if(t==="z"){const buf=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).arrayBuffer();return JSON.parse(new TextDecoder().decode(buf))}
+  return JSON.parse(new TextDecoder().decode(bytes))}
+const telWA=()=>{let d=(prefs.tel||"").replace(/\D/g,"");if(!d)return "";if(!d.startsWith("54"))d="549"+d.replace(/^0/,"");return d};
+const waURL=text=>"https://wa.me/"+telWA()+"?text="+encodeURIComponent(text);
+
+/* ---------- cómo se ve un mensaje ---------- */
+const TIPO={dia:"Hoy te comparto",semana:"Nuestro encuentro semanal",resp:"Te respondo"};
+function fields(m){const d=m.d||{},F=[];const add=(k,v)=>{if(v&&(!Array.isArray(v)||v.length))F.push([k,Array.isArray(v)?v.join(", "):v])};
+  if(m.tipo==="dia"){add("Cómo llego hoy",d.animo!=null?moodName(d.animo):"");add("Lo que sentí",d.emo);add("Algo que me pasó y quiero contarte",d.paso);
+    add("Hoy necesitaría de vos",[...(d.necesito||[]),d.necesitoTxt].filter(Boolean));add("Hoy te agradezco",d.gracias);add("Me sentí querido/a cuando",d.querido)}
+  if(m.tipo==="semana"){add("Cómo viví nuestra semana",d.general);add("Cómo estuvimos (1 a 5)",Object.entries(d.areas||{}).map(([a,n])=>`${a} ${n}`).join(" · "));
+    add("Tres cosas que valoré de vos",(d.valore||[]).filter(Boolean).map(x=>"• "+x).join("\n"));add("Me sentí cerca de vos cuando",d.cerca);
+    if(d.cuando||d.importa||d.pido||(d.senti||[]).length)add("Algo que me dolió o me quedó pendiente",[d.cuando&&"Cuando "+d.cuando,(d.senti||[]).length&&"me sentí "+d.senti.join(", ").toLowerCase(),d.importa&&"porque para mí es importante "+d.importa,d.pido&&"Te pido: "+d.pido].filter(Boolean).join("\n"));
+    add("Me hago cargo de",d.cargo);add("Te pido perdón por",d.perdon);add("Para la semana que viene necesito de vos",d.necesito);
+    add("Te propongo",[...(d.planes||[]),d.planTxt].filter(Boolean));add("Un sueño para nosotros",d.sueno);
+    if(d.pregunta)add("Una pregunta para conocernos","«"+d.pregunta+"»\n"+(d.miResp?"Mi respuesta: "+d.miResp:"(Te toca responderla)"))}
+  if(m.tipo==="resp"){add("Lo que entendí de lo que me contaste",d.entendi);add("Te quiero decir",d.valido);add("Lo que me generó leerte",d.siento);
+    add("Lo que puedo hacer por vos",[...(d.ofrezco||[]),d.ofrezcoTxt].filter(Boolean));if(d.pregunta)add("Mi respuesta a «"+d.pregunta+"»",d.pregResp);add("Algo más",d.mas)}
+  return F}
+function fechaMsg(m){try{return new Date(m.ts).toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"})}catch(e){return ""}}
+function renderMsg(m,mine){const F=fields(m);const orig=m.re?msgs.find(x=>x.id===m.re):null;
+  return `<article class="msg"><div class="from ${mine?"me":""}"><span class="av">${esc(inicial(m.de))}</span><div><b>${esc(mine?"Yo":m.de)}</b> · ${TIPO[m.tipo]||""}<div class="small muted">${esc(fechaMsg(m))}</div></div></div>
+   ${orig?`<blockquote>En respuesta a «${esc(TIPO[orig.tipo])}» del ${esc(fechaMsg(orig))}</blockquote>`:""}
+   <dl>${F.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")||"<dd class='muted'>(sin contenido)</dd>"}</dl></article>`}
+function msgText(m){const F=fields(m);const para=prefs.pareja?`, ${prefs.pareja}`:"";
+  const head={dia:`💛 *Hoy te comparto${para}*`,semana:`🗓️ *Nuestro encuentro semanal${para}*`,resp:`💬 *Te respondo${para}*`}[m.tipo];
+  return [head,`_${m.de} · ${fechaMsg(m)}_`,"",...F.map(([k,v])=>`*${k}:*\n${v}`).join("\n\n").split("\n")].join("\n")}
+async function sendLink(m){return WEB+"#m="+await pack(m)}
+async function fullText(m){return msgText(m)+"\n\n"+(m.tipo==="resp"?"Abrilo en A tu lado para leerlo con calma 👇":"Abrilo en A tu lado para leerlo con calma y responderme 👇")+"\n"+await sendLink(m)}
+function upsertSent(m){const i=msgs.findIndex(x=>x.id===m.id);const r={...m,dir:"env"};if(i>=0)msgs[i]=r;else msgs.push(r);saveMsgs()}
+async function share(m,ok){upsertSent(m);const text=await fullText(m);
+  try{if(navigator.share){await navigator.share({text});toast(ok);return}}catch(e){if(e&&e.name==="AbortError")return}
+  copy(text,"Mensaje copiado: péguelo en el chat con su pareja")}
+// enlace de WhatsApp siempre listo (se recalcula al escribir)
+function liveLink(btn,build,ok){let n=0;const upd=async()=>{const my=++n;const m=build();const t=await fullText(m);if(my===n)btn.href=waURL(t)};
+  btn.addEventListener("click",()=>{upsertSent(build());toast(ok)});return upd}
+
+/* ---------- HOY ---------- */
+const dFecha=$("#d-fecha");const todayISO=iso(new Date());dFecha.value=todayISO;dFecha.max=todayISO;
+let animo=null;const animoEl=$("#d-animo");
+MOODS.forEach(m=>{const b=document.createElement("button");b.type="button";b.className="mood";b.setAttribute("aria-pressed","false");b.dataset.v=m.v;
+  b.innerHTML=`<span class="disc" style="background:${moodColor(m.v)}"></span>${m.t}`;
+  b.onclick=()=>{animo=animo===m.v?null:m.v;animoEl.querySelectorAll(".mood").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.v===animo?"true":"false"));onDay()};animoEl.appendChild(b)});
+chipGroup($("#d-emo"),EMOS);chipGroup($("#d-necesito"),NECESITO);
+function dayData(){return{animo,emo:getChips($("#d-emo")),paso:$("#d-paso").value.trim(),necesito:getChips($("#d-necesito")),necesitoTxt:$("#d-necesito-txt").value.trim(),gracias:$("#d-gracias").value.trim(),querido:$("#d-querido").value.trim()}}
+function dayMsg(){const k=dFecha.value;const ex=daily[k]||{};const id=ex.id||("d"+k+"-"+uid());if(!ex.id){daily[k]={...ex,id};}
+  return{v:1,id,tipo:"dia",de:yo(),ts:k===todayISO?Date.now():parse(k).setHours(21),d:dayData()}}
+const updDayLink=liveLink($("#d-wa"),dayMsg,"Se abrió WhatsApp. ¡Gracias por compartir!");
+function onDay(){const k=dFecha.value;daily[k]={...(daily[k]||{}),...dayData()};store.set("daily",daily);updDayLink()}
+$("#v-hoy").addEventListener("input",e=>{if(e.target.id!=="d-fecha")onDay()});
+dFecha.onchange=loadDay;
+$("#d-share").onclick=()=>share(dayMsg(),"¡Gracias por compartir!");
+function loadDay(){const k=dFecha.value,e=daily[k]||{};
+  $("#hoy-fecha").textContent=fmtLong(parse(k));
+  animo=e.animo??null;animoEl.querySelectorAll(".mood").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.v===animo?"true":"false"));
+  setChips($("#d-emo"),e.emo);setChips($("#d-necesito"),e.necesito);
+  $("#d-paso").value=e.paso||"";$("#d-necesito-txt").value=e.necesitoTxt||"";$("#d-gracias").value=e.gracias||"";$("#d-querido").value=e.querido||"";
+  const sent=e.id&&msgs.some(m=>m.id===e.id&&m.dir==="env");$("#hoy-estado").textContent=sent?"Enviado":"Sin enviar";
+  updDayLink()}
+
+/* ---------- SEMANA ---------- */
+let wk=monday(new Date());
+segGroup($("#w-general"),GENERAL);makeScale($("#w-areas"),AREAS);chipGroup($("#w-senti"),SENTI);chipGroup($("#w-planes"),PLANES);
+const TXT=["v1","v2","v3","cerca","cuando","importa","pido","cargo","perdon","necesito","plan-txt","sueno","mi-resp"];
+function weekData(){const w=weekly[iso(wk)]||{};return{general:getSeg($("#w-general")),areas:getScale($("#w-areas"),AREAS),
+  valore:[$("#w-v1").value.trim(),$("#w-v2").value.trim(),$("#w-v3").value.trim()],cerca:$("#w-cerca").value.trim(),
+  cuando:$("#w-cuando").value.trim(),senti:getChips($("#w-senti")),importa:$("#w-importa").value.trim(),pido:$("#w-pido").value.trim(),
+  cargo:$("#w-cargo").value.trim(),perdon:$("#w-perdon").value.trim(),necesito:$("#w-necesito").value.trim(),planes:getChips($("#w-planes")),planTxt:$("#w-plan-txt").value.trim(),
+  sueno:$("#w-sueno").value.trim(),pregunta:w.pregunta||PREGUNTAS[0],miResp:$("#w-mi-resp").value.trim()}}
+function weekMsg(){const k=iso(wk);const ex=weekly[k]||{};const id=ex.id||("s"+k+"-"+uid());if(!ex.id)weekly[k]={...ex,id};
+  return{v:1,id,tipo:"semana",de:yo(),ts:Date.now(),d:weekData()}}
+const updWeekLink=liveLink($("#w-wa"),weekMsg,"Se abrió WhatsApp. Ahora, a buscar un rato para charlarlo.");
+function onWeek(){const k=iso(wk);weekly[k]={...(weekly[k]||{}),...weekData()};store.set("weekly",weekly);updWeekLink()}
+$("#v-semana").addEventListener("input",onWeek);
+$("#w-share").onclick=()=>share(weekMsg(),"¡Gracias por compartir!");
+$("#w-otra-preg").onclick=()=>{const k=iso(wk);const cur=(weekly[k]||{}).pregunta||PREGUNTAS[0];let i=(PREGUNTAS.indexOf(cur)+1)%PREGUNTAS.length;
+  weekly[k]={...(weekly[k]||{}),pregunta:PREGUNTAS[i]};$("#w-pregunta").textContent=PREGUNTAS[i];onWeek()};
+function loadWeek(){const k=iso(wk);let w=weekly[k];
+  if(!w||!w.pregunta){const seed=Math.floor(wk.getTime()/6048e5);w={...(w||{}),pregunta:PREGUNTAS[((seed%PREGUNTAS.length)+PREGUNTAS.length)%PREGUNTAS.length]};weekly[k]=w}
+  const r=fmtShort(wk)+" al "+fmtShort(addDays(wk,6));$("#sem-rango").textContent=r;$("#sem-rango2").textContent=r;
+  $("#sem-next").disabled=addDays(wk,7)>new Date();
+  setSeg($("#w-general"),w.general);setScale($("#w-areas"),AREAS,w.areas);setChips($("#w-senti"),w.senti);setChips($("#w-planes"),w.planes);
+  const v=w.valore||[];$("#w-v1").value=v[0]||"";$("#w-v2").value=v[1]||"";$("#w-v3").value=v[2]||"";
+  [["cerca","cerca"],["cuando","cuando"],["importa","importa"],["pido","pido"],["cargo","cargo"],["perdon","perdon"],["necesito","necesito"],["plan-txt","planTxt"],["sueno","sueno"],["mi-resp","miResp"]].forEach(([id,f])=>$("#w-"+id).value=w[f]||"");
+  $("#w-pregunta").textContent=w.pregunta;
+  const s=addDays(wk,0),e=addDays(wk,7);const inW=m=>m.ts>=s.getTime()&&m.ts<e.getTime();
+  const env=msgs.filter(m=>m.dir==="env"&&inW(m)).length,rec=msgs.filter(m=>m.dir==="rec"&&inW(m)).length;
+  $("#sem-resumen").textContent=(env||rec)?`Esta semana se compartieron ${env+rec} mensaje${env+rec>1?"s":""}: ${env} enviado${env!==1?"s":""} y ${rec} recibido${rec!==1?"s":""}.`:"Todavía no se compartieron mensajes esta semana.";
+  updWeekLink()}
+$("#sem-prev").onclick=()=>{wk=addDays(wk,-7);loadWeek()};
+$("#sem-next").onclick=()=>{wk=addDays(wk,7);loadWeek()};
+
+/* ---------- RECIBIDOS ---------- */
+chipGroup($("#r-valido"),VALIDO);chipGroup($("#r-ofrezco"),OFREZCO);
+let abierto=null;
+const recibidos=()=>msgs.filter(m=>m.dir==="rec").sort((a,b)=>b.ts-a.ts);
+function badge(){const n=msgs.filter(m=>m.dir==="rec"&&!m.leido).length;const b=$("#nbadge");b.hidden=!n;b.textContent=n}
+function loadRec(){const L=recibidos();$("#r-detalle").hidden=true;$("#r-lista").hidden=false;
+  $("#r-lista").innerHTML=L.length?L.map(m=>`<button class="inbox-item" data-open="${esc(m.id)}"><span class="dot ${m.leido?"read":""}"></span><span class="t"><b>${esc(TIPO[m.tipo]||"Mensaje")}</b><span class="small muted">${esc(m.de)} · ${esc(fechaMsg(m))}</span></span><span aria-hidden="true">›</span></button>`).join("")
+    :`<div class="empty">Todavía no recibió mensajes. Cuando su pareja le envíe uno, toque el enlace de WhatsApp y aparecerá acá.</div>`}
+const R_TXT=["entendi","siento","ofrezco-txt","preg-resp","mas"];
+function respData(){const o=abierto;return{entendi:$("#r-entendi").value.trim(),valido:getChips($("#r-valido")),siento:$("#r-siento").value.trim(),
+  ofrezco:getChips($("#r-ofrezco")),ofrezcoTxt:$("#r-ofrezco-txt").value.trim(),pregunta:o&&o.tipo==="semana"?o.d.pregunta:"",pregResp:$("#r-preg-resp").value.trim(),mas:$("#r-mas").value.trim()}}
+function respMsg(){const o=abierto;o.borrador=o.borrador||{};const id=o.respId||(o.respId="r"+uid());saveMsgs();return{v:1,id,tipo:"resp",re:o.id,de:yo(),ts:Date.now(),d:respData()}}
+const updRespLink=liveLink($("#r-wa"),()=>respMsg(),"Se abrió WhatsApp con su respuesta.");
+$("#r-form").addEventListener("input",()=>{if(!abierto)return;abierto.borrador=respData();saveMsgs();updRespLink()});
+$("#r-share").onclick=()=>share(respMsg(),"Respuesta enviada");
+function openMsg(id){const m=msgs.find(x=>x.id===id);if(!m)return loadRec();abierto=m;m.leido=true;saveMsgs();badge();
+  $("#r-lista").hidden=true;$("#r-detalle").hidden=false;$("#r-msg").innerHTML=renderMsg(m,false);
+  const b=m.borrador||{};$("#r-entendi").value=b.entendi||"";setChips($("#r-valido"),b.valido);$("#r-siento").value=b.siento||"";
+  setChips($("#r-ofrezco"),b.ofrezco);$("#r-ofrezco-txt").value=b.ofrezcoTxt||"";$("#r-preg-resp").value=b.pregResp||"";$("#r-mas").value=b.mas||"";
+  const q=m.tipo==="semana"&&m.d.pregunta;$("#r-preg-card").hidden=!q;$("#r-preg").textContent=q?"«"+m.d.pregunta+"»":"";
+  updRespLink();window.scrollTo(0,0)}
+$("#r-volver").onclick=()=>{abierto=null;loadRec()};
+
+/* ---------- HISTORIAL ---------- */
+function loadHist(){const L=[...msgs].sort((a,b)=>b.ts-a.ts);
+  const env=msgs.filter(m=>m.dir==="env").length,rec=msgs.filter(m=>m.dir==="rec").length,sem=msgs.filter(m=>m.tipo==="semana").length;
+  $("#h-stats").innerHTML=`<div class="stat"><b>${env}</b><span>enviados</span></div><div class="stat"><b>${rec}</b><span>recibidos</span></div><div class="stat"><b>${sem}</b><span>encuentros semanales</span></div>`;
+  $("#h-lista").innerHTML=L.length?L.map(m=>`<details class="entry"><summary><span class="disc" style="background:${m.dir==="env"?"var(--warm)":"var(--brand)"}"></span><span style="flex:1">${esc(TIPO[m.tipo])}</span><span class="small muted">${m.dir==="env"?"Yo":esc(m.de)} · ${esc(new Date(m.ts).toLocaleDateString("es-AR",{day:"numeric",month:"short"}))}</span></summary><div class="body">${renderMsg(m,m.dir==="env")}${m.dir==="rec"?`<button class="linkbtn" data-open="${esc(m.id)}">Responder</button>`:""}</div></details>`).join("")
+    :`<div class="empty">Acá van a quedar los mensajes que se envíen y reciban. Empiecen hoy desde la pestaña <b>Hoy</b>.</div>`}
+document.addEventListener("click",e=>{const o=e.target.closest("[data-open]");if(o){const id=o.dataset.open;if(location.hash!=="#recibidos"){location.hash="recibidos";setTimeout(()=>openMsg(id),30)}else openMsg(id)}
+  const c=e.target.closest("[data-copy]");if(c)copy(c.dataset.copy)});
+
+/* ---------- AJUSTES ---------- */
+function loadPrefs(){$("#a-nombre").value=prefs.nombre||"";$("#a-pareja").value=prefs.pareja||"";$("#a-tel").value=prefs.tel||""}
+$("#a-guardar").onclick=()=>{prefs={nombre:$("#a-nombre").value.trim(),pareja:$("#a-pareja").value.trim(),tel:$("#a-tel").value.trim()};store.set("prefs",prefs);toast("Datos guardados")};
+$("#a-export").onclick=()=>copy(JSON.stringify({app:"a-tu-lado-pareja",v:1,daily,weekly,msgs,prefs}),"Respaldo copiado");
+$("#a-import-btn").onclick=()=>{try{const d=JSON.parse($("#a-import").value);if(d.app!=="a-tu-lado-pareja")throw 0;
+  daily={...daily,...d.daily};weekly={...weekly,...d.weekly};const ids=new Set(msgs.map(m=>m.id));(d.msgs||[]).forEach(m=>{if(!ids.has(m.id))msgs.push(m)});if(d.prefs)prefs={...prefs,...d.prefs};
+  store.set("daily",daily);store.set("weekly",weekly);saveMsgs();store.set("prefs",prefs);$("#a-import").value="";loadPrefs();badge();toast("Respaldo restaurado")}
+  catch(e){toast("El texto no es un respaldo válido. Pegue el respaldo completo.")}};
+$("#a-borrar").onclick=()=>{$("#a-confirm").hidden=false;$("#a-borrar").hidden=true};
+$("#a-borrar-no").onclick=()=>{$("#a-confirm").hidden=true;$("#a-borrar").hidden=false};
+$("#a-borrar-si").onclick=()=>{daily={};weekly={};msgs=[];store.set("daily",daily);store.set("weekly",weekly);saveMsgs();$("#a-confirm").hidden=true;$("#a-borrar").hidden=false;badge();toast("Datos borrados")};
+loadPrefs();
+
+/* ---------- instalar en el celular ---------- */
+const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+const ua=navigator.userAgent,isIOS=/iphone|ipad|ipod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),isAndroid=/android/i.test(ua);
+let deferred=null;
+function installUI(){
+  const hide=standalone||store.get("installLater",0)>Date.now();
+  $("#install-card").hidden=hide||!(isIOS||isAndroid||deferred);
+  $("#install-btn").hidden=!deferred;
+  // Siempre se ven los pasos de iPhone y de Android; primero los del propio celular
+  $$(".inst-ios,.inst-android").forEach(e=>e.hidden=false);
+  if(isAndroid&&!isIOS){$$(".inst-android").forEach(a=>{const i=a.parentElement.querySelector(".inst-ios");if(i)a.parentElement.insertBefore(a,i)})}
+  $("#a-install").textContent=standalone?"La app ya está instalada":"Instalar la app";$("#a-install").disabled=standalone;
+}
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;installUI()});
+addEventListener("appinstalled",()=>{deferred=null;toast("¡Listo! La app quedó en su pantalla de inicio");$("#install-card").hidden=true});
+async function doInstall(){
+  if(deferred){deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;installUI();return}
+  location.hash="#guia";setTimeout(()=>{const d=$("#guia-instalar");if(d){d.open=true;d.scrollIntoView({block:"start"})}},60);
+}
+$("#install-btn").onclick=doInstall;$("#a-install").onclick=doInstall;
+$("#install-later").onclick=()=>{store.set("installLater",Date.now()+7*864e5);$("#install-card").hidden=true};
+installUI();
+document.addEventListener("click",e=>{const a=e.target.closest("[data-goto]");if(!a)return;const id=a.dataset.goto;
+  setTimeout(()=>{const t=document.getElementById(id);if(!t)return;if(t.tagName==="DETAILS")t.open=true;t.scrollIntoView({block:"start"})},60)});
+$("#p-share").onclick=async()=>{const url=WEB;const data={title:"A tu lado · App para parejas",text:"Una app para compartir en pareja cómo estamos, lo que valoramos y lo que necesitamos.",url};
+  try{if(navigator.share){await navigator.share(data);return}}catch(e){if(e&&e.name==="AbortError")return}copy(url,"Enlace copiado")};
+
+/* ---------- navegación ---------- */
+const VIEWS=["hoy","semana","recibidos","historial","guia","profesional","ajustes"];
+async function route(){
+  const h=location.hash;
+  if(h.startsWith("#m=")){try{const m=await unpack(h.slice(3));
+      if(!m||!m.id||!m.tipo)throw 0;
+      const mineSent=msgs.find(x=>x.id===m.id&&x.dir==="env");
+      if(mineSent){toast("Este mensaje lo envió usted");history.replaceState(null,"","#historial");return route()}
+      if(!msgs.some(x=>x.id===m.id))msgs.push({...m,dir:"rec",leido:false});saveMsgs();badge();
+      history.replaceState(null,"","#recibidos");showView("recibidos");openMsg(m.id);return}
+    catch(e){history.replaceState(null,"","#recibidos");toast("No se pudo abrir el mensaje. Pídale que lo reenvíe.")}}
+  const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"hoy";showView(v);
+  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recibidos")loadRec();if(v==="historial")loadHist();
+  window.scrollTo(0,0)}
+function showView(v){VIEWS.forEach(n=>$("#v-"+n).hidden=n!==v);
+  $$("[data-nav]").forEach(a=>a.dataset.nav===v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"))}
+addEventListener("hashchange",route);badge();route();
+if(!prefs.nombre)setTimeout(()=>toast("Para empezar, escriba su nombre y el de su pareja en Ajustes"),900);
+})();
+</script>
+<script>
+if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
+</script>
+</body>
+</html>
