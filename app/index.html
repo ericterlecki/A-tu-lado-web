@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="A tu lado">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>A tu lado · Mi registro</title>
-<meta name="theme-color" content="#1f4955">
+<meta name="theme-color" content="#1E3A5F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
@@ -22,21 +22,21 @@
   --bg:#f7f2e9;        /* crema de la web */
   --surface:#fbf7f0;
   --sunk:#efe6d6;
-  --fg:#1d2f33;
-  --muted:#56686b;
+  --fg:#1B2A3D;
+  --muted:#566578;
   --line:#d9cdb9;
-  --brand:#1f4955;     /* azul petróleo del logo */
-  --brand-soft:#d6e0e0;
-  --warm:#d9906f;      /* terracota */
-  --warm-ink:#b35a33;
-  --dot:#d9906f;       /* terracota del logo */
-  --dot-soft:#f3dccf;
-  --dot-ink:#9a4f30;
+  --brand:#1E3A5F;     /* azul marino del logo */
+  --brand-soft:#D6DFEA;
+  --warm:#DAA7AC;      /* rosa */
+  --warm-ink:#A04F60;
+  --dot:#DAA7AC;       /* rosa del logo */
+  --dot-soft:#F3DFE0;
+  --dot-ink:#8A4353;
   --danger:#a8402a;
   --on-brand:#f2ebdb;
-  --head-bg:#1f4955;
+  --head-bg:#1E3A5F;
   --head-fg:#f2ebdb;
-  --logo-a:#f2ebdb; --logo-b:#d9906f; --logo-c:#e3b866;
+  --logo-a:#f2ebdb; --logo-b:#DAA7AC; --logo-c:#e3b866;
   --m7:#4f8a5b; --m6:#79a368; --m5:#a8b86a; --m4:#e3b866; --m3:#e39c5e; --m2:#d9774f; --m1:#b0473a;
   --display:"Gloock", Georgia, "Times New Roman", serif;
   --quote:"Newsreader", Georgia, "Times New Roman", serif;
@@ -44,14 +44,14 @@
   --r:14px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f262b; --surface:#163339; --sunk:#1c3d44; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e;
-  --brand:#8fc0c9; --brand-soft:#21434d; --warm:#e08a60; --warm-ink:#e08a60; --dot:#e3a07f; --dot-soft:#4a3128; --dot-ink:#eab196; --danger:#f08a70; --on-brand:#10232a;
-  --head-bg:#173a44; --head-fg:#f2ebdb;
+  --bg:#0E1E33; --surface:#162B45; --sunk:#1B3552; --fg:#ece3d3; --muted:#A5B1C0; --line:#2A4463;
+  --brand:#A3CDEB; --brand-soft:#213C5A; --warm:#E3A9AE; --warm-ink:#E3A9AE; --dot:#DDA5AA; --dot-soft:#4A2F36; --dot-ink:#EBC0C3; --danger:#f08a70; --on-brand:#101F33;
+  --head-bg:#17324F; --head-fg:#f2ebdb;
   --m7:#6fae7c; --m6:#93bd80; --m5:#bccb80; --m4:#ecc77e; --m3:#eba774; --m2:#e48a66; --m1:#d2685a; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f262b; --surface:#163339; --sunk:#1c3d44; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e;
-  --brand:#8fc0c9; --brand-soft:#21434d; --warm:#e08a60; --warm-ink:#e08a60; --dot:#e3a07f; --dot-soft:#4a3128; --dot-ink:#eab196; --danger:#f08a70; --on-brand:#10232a;
-  --head-bg:#173a44; --head-fg:#f2ebdb;
+  --bg:#0E1E33; --surface:#162B45; --sunk:#1B3552; --fg:#ece3d3; --muted:#A5B1C0; --line:#2A4463;
+  --brand:#A3CDEB; --brand-soft:#213C5A; --warm:#E3A9AE; --warm-ink:#E3A9AE; --dot:#DDA5AA; --dot-soft:#4A2F36; --dot-ink:#EBC0C3; --danger:#f08a70; --on-brand:#101F33;
+  --head-bg:#17324F; --head-fg:#f2ebdb;
   --m7:#6fae7c; --m6:#93bd80; --m5:#bccb80; --m4:#ecc77e; --m3:#eba774; --m2:#e48a66; --m1:#d2685a; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -260,7 +260,7 @@ dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
 .install p{font-size:.9rem;color:color-mix(in srgb,var(--head-fg) 82%,transparent)}
 .install ol{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:.9rem}
 .install .row .btn{flex:0 1 auto}
-.install .btn{background:var(--logo-b);color:#1f2f33}
+.install .btn{background:var(--logo-b);color:#1C2A3C}
 .install .btn.ghost{background:transparent;color:var(--head-fg);border-color:color-mix(in srgb,var(--head-fg) 40%,transparent)}
 .ico{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em}
 .inst-ios + .inst-android,.inst-android + .inst-ios{margin-top:18px}
@@ -270,7 +270,7 @@ dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
 #conf,details.guide{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
 .conf ul{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:.93rem}
 .ig-card{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
-.ig-badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--logo-c),var(--logo-b) 55%,#b35a33);color:#fff}
+.ig-badge{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--logo-c),var(--logo-b) 55%,#A04F60);color:#fff}
 .ig-badge svg{width:28px;height:28px}
 .sos-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .sos-list li{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline}
