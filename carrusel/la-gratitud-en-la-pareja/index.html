@@ -58,7 +58,8 @@ footer{background:var(--petrol);color:rgba(242,235,219,.7);font-size:.82rem}foot
     <h1>La gratitud en la pareja</h1>
     <p class="lead">Por qué con el tiempo dejamos de ver lo bueno, qué dice la investigación sobre el aprecio y cómo cultivarlo todos los días.</p>
     <p class="meta">Carrusel · 6 placas</p>
-    <div class="btns"><a class="btn p" href="../../carruseles/la-gratitud-en-la-pareja/la-gratitud-en-la-pareja.pdf" download>Descargar PDF</a><button class="btn s" type="button" id="share">Compartir</button></div>
+    <div class="btns"><a class="btn p" href="../../carruseles/la-gratitud-en-la-pareja/la-gratitud-en-la-pareja.pdf" download>Descargar PDF</a><button class="btn s" type="button" id="saveimgs">Guardar las 6 imágenes</button><button class="btn s" type="button" id="share">Compartir</button></div>
+    <p class="meta">Para Instagram: toca «Guardar las 6 imágenes» y elige guardarlas en tu galería. Instagram no acepta el PDF.</p>
     <div class="box"><h2>En este carrusel</h2><ol><li>Nos acostumbramos</li><li>Una cultura de aprecio</li><li>Agradecer bien</li><li>Todos los días</li></ol></div><div class="slides"><img src="../../carruseles/la-gratitud-en-la-pareja/01.jpg" alt="Placa 1 de 6" width="1080" height="1350" loading="eager"><img src="../../carruseles/la-gratitud-en-la-pareja/02.jpg" alt="Placa 2 de 6" width="1080" height="1350" loading="eager"><img src="../../carruseles/la-gratitud-en-la-pareja/03.jpg" alt="Placa 3 de 6" width="1080" height="1350" loading="lazy"><img src="../../carruseles/la-gratitud-en-la-pareja/04.jpg" alt="Placa 4 de 6" width="1080" height="1350" loading="lazy"><img src="../../carruseles/la-gratitud-en-la-pareja/05.jpg" alt="Placa 5 de 6" width="1080" height="1350" loading="lazy"><img src="../../carruseles/la-gratitud-en-la-pareja/06.jpg" alt="Placa 6 de 6" width="1080" height="1350" loading="lazy"></div>
     <p class="more">Gratuito y de libre uso: puedes descargarlo, imprimirlo y compartirlo citando la fuente y sin fines comerciales. <a href="../../#recursos">Más recursos en A tu lado</a>.</p>
   </div>
@@ -67,5 +68,11 @@ footer{background:var(--petrol);color:rgba(242,235,219,.7);font-size:.82rem}foot
 </div></main>
 <footer><div class="w">A tu lado · Lic. Eric Terlecki · Mat. N.º 4331 · <a href="../../">a-tu-lado-web.vercel.app</a> · Licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="noopener">CC BY-NC 4.0</a></div></footer>
 <script>document.getElementById("share").addEventListener("click",()=>{const d={title:document.title,text:"Por qué con el tiempo dejamos de ver lo bueno, qué dice la investigación sobre el aprecio y cómo cultivarlo todos los días.",url:location.href};if(navigator.share){navigator.share(d).catch(()=>{});return}const w="https://wa.me/?text="+encodeURIComponent(d.title+" "+d.url);window.open(w,"_blank","noopener")});</script>
+<script>(function(){var b=document.getElementById("saveimgs");if(!b)return;var slug=location.pathname.replace(/\/+$/,"").split("/").pop()||"carrusel";var imgs=[].slice.call(document.querySelectorAll(".slides img"));var files=null,label=b.textContent;
+var ready=Promise.all(imgs.map(function(im,i){return fetch(im.src).then(function(r){return r.blob()}).then(function(bl){return new File([bl],slug+"-"+("0"+(i+1)).slice(-2)+".jpg",{type:"image/jpeg"})})})).then(function(f){files=f}).catch(function(){});
+function hint(t){b.textContent=t;setTimeout(function(){b.textContent=label},4000)}
+function go(){if(navigator.canShare&&navigator.canShare({files:files})){navigator.share({files:files}).catch(function(){});return}
+files.forEach(function(f,i){setTimeout(function(){var a=document.createElement("a");a.href=URL.createObjectURL(f);a.download=f.name;document.body.appendChild(a);a.click();a.remove()},i*400)})}
+b.addEventListener("click",function(){if(files){go();return}hint("Preparando… toca de nuevo");ready.then(function(){if(!files)hint("Mantén presionada cada imagen para guardarla")})})})();</script>
 </body>
 </html>
