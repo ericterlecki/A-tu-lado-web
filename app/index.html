@@ -356,7 +356,7 @@ nav.tabs a{font-size:.68rem!important;padding:6px 0!important}
     <section class="view" id="v-hoy" hidden>
       <div class="lead">
         <span class="eyebrow" id="hoy-fecha"></span>
-        <h2>Hoy te comparto</h2>
+        <h2>Hoy te digo</h2>
         <p class="muted">Un mensaje breve para que su pareja sepa cómo llega hoy. Cada uno/a completa el suyo y se lo envía al otro/a. No es para evaluar al otro/a, sino para dejarse conocer.</p>
       </div>
       <div class="install" id="install-card" hidden>
@@ -369,7 +369,7 @@ nav.tabs a{font-size:.68rem!important;padding:6px 0!important}
         <div class="row"><button class="btn" id="install-btn" type="button" hidden>Instalar la app</button><button class="btn ghost" id="install-later" type="button">Ahora no</button></div>
       </div>
       <div class="card">
-        <div class="steps3"><div><b>1</b>Lo completo yo</div><div><b>2</b>Te lo envío por WhatsApp</div><div><b>3</b>Lo lees y me respondes</div></div>
+        <div class="steps3"><div><b>1</b>Lo completo yo</div><div><b>2</b>Te lo envío por WhatsApp</div><div><b>3</b>Lo lees y me decís</div></div>
         <div class="datebar"><label class="small muted">Fecha <input type="date" id="d-fecha"></label><span class="badge" id="hoy-estado">Sin enviar</span></div>
       </div>
 
@@ -863,7 +863,7 @@ const telWA=()=>{let d=(prefs.tel||"").replace(/\D/g,"");if(!d)return "";if(!d.s
 const waURL=text=>"https://wa.me/"+telWA()+"?text="+encodeURIComponent(text);
 
 /* ---------- cómo se ve un mensaje ---------- */
-const TIPO={dia:"Hoy te comparto",semana:"Nuestro encuentro semanal",resp:"Te respondo"};
+const TIPO={dia:"Hoy te digo",semana:"Nuestro encuentro semanal",resp:"Te respondo"};
 function fields(m){const d=m.d||{},F=[];const add=(k,v)=>{if(v&&(!Array.isArray(v)||v.length))F.push([k,Array.isArray(v)?v.join(", "):v])};
   if(m.tipo==="dia"){add("Cómo llego hoy",d.animo!=null?moodName(d.animo):"");add("Lo que sentí",d.emo);add("Algo que me pasó y quiero contarte",d.paso);
     add("Hoy necesitaría de ti",[...(d.necesito||[]),d.necesitoTxt].filter(Boolean));add("Hoy te agradezco",d.gracias);add("Me sentí querido/a cuando",d.querido)}
@@ -882,7 +882,7 @@ function renderMsg(m,mine){const F=fields(m);const orig=m.re?msgs.find(x=>x.id==
    ${orig?`<blockquote>En respuesta a «${esc(TIPO[orig.tipo])}» del ${esc(fechaMsg(orig))}</blockquote>`:""}
    <dl>${F.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")||"<dd class='muted'>(sin contenido)</dd>"}</dl></article>`}
 function msgText(m){const F=fields(m);const para=prefs.pareja?`, ${prefs.pareja}`:"";
-  const head={dia:`💛 *Hoy te comparto${para}*`,semana:`🗓️ *Nuestro encuentro semanal${para}*`,resp:`💬 *Te respondo${para}*`}[m.tipo];
+  const head={dia:`💛 *Hoy te digo${para}*`,semana:`🗓️ *Nuestro encuentro semanal${para}*`,resp:`💬 *Te respondo${para}*`}[m.tipo];
   return [head,`_${m.de} · ${fechaMsg(m)}_`,"",...F.map(([k,v])=>`*${k}:*\n${v}`).join("\n\n").split("\n")].join("\n")}
 async function sendLink(m){return WEB+"#m="+await pack(m)}
 async function fullText(m){return msgText(m)+"\n\n"+(m.tipo==="resp"?"Ábrelo en A tu lado para leerlo con calma 👇":"Ábrelo en A tu lado para leerlo con calma y responderme 👇")+"\n"+await sendLink(m)}
